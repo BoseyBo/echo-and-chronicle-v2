@@ -7,35 +7,45 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Roboto&display=swap');
 
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #111 0%, #1c1c1c 100%);
       color: #fff;
       text-align: center;
       padding: 60px 20px;
-      animation: fadeIn 1.5s ease;
     }
 
-    img.logo {
-      max-width: 160px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      max-width: 180px;
       margin-bottom: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 2s ease;
+      animation: fadeIn 3s ease;
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 36px;
       margin-bottom: 15px;
-      animation: fadeIn 2s ease;
+      animation: fadeIn 3s ease;
     }
 
     p {
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto 40px auto;
-      animation: fadeIn 2.2s ease;
+      animation: fadeIn 3.2s ease;
     }
 
     .btn {
@@ -47,51 +57,30 @@
       border-radius: 4px;
       cursor: pointer;
       text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s;
+      animation: fadeIn 3.4s ease;
     }
 
     .btn:hover {
       background-color: #ddd;
-      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
     }
 
     footer {
       margin-top: 50px;
       font-size: 12px;
       color: #777;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 28px;
-      }
-      p {
-        font-size: 16px;
-        padding: 0 10px;
-      }
-      img.logo {
-        max-width: 120px;
-      }
+      animation: fadeIn 3.5s ease;
     }
   </style>
 </head>
 <body>
   <img src="logo.png" alt="Echo & Chronicle Logo" class="logo" />
-
   <h1>Echo & Chronicle</h1>
   <p>
     A storytelling platform for reflection, healing, and emotional intelligence.<br>
     This is our prototype hub—where stories meet insight.
   </p>
-
   <a href="journal.html" class="btn">Start Story</a>
-
   <footer>
     &copy; 2025 WildMind. All rights reserved.
   </footer>
