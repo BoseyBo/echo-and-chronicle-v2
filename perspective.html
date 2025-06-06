@@ -1,80 +1,68 @@
+<!-- perspective.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perspective Playback - Echo & Chronicle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspective Shift | Echo & Chronicle</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      font-family: 'Georgia', serif;
+      font-family: Arial, sans-serif;
       background-color: #111;
-      color: #f9f9f9;
+      color: #fff;
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
     .container {
-      max-width: 800px;
-      margin: 0 auto;
-      animation: fadeIn 2s ease;
+      max-width: 700px;
+      margin: auto;
     }
     h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
+      font-size: 34px;
+      margin-bottom: 10px;
     }
     p {
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 30px;
     }
-    .art-placeholder {
-      width: 100%;
-      max-width: 640px;
-      height: 360px;
-      background-color: #333;
-      margin: 30px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-style: italic;
-      border-radius: 12px;
-    }
     .btn {
-      background-color: #fff;
-      color: #111;
-      padding: 12px 24px;
+      padding: 12px 20px;
       font-size: 16px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
       text-decoration: none;
-      border-radius: 5px;
+      margin: 10px;
+      display: inline-block;
     }
     .btn:hover {
-      background-color: #eee;
+      background-color: #ccc;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #777;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Your Story, Through Someone Else's Eyes</h1>
+    <h1>See Yourself Through Their Eyes</h1>
     <p>
-      You’ve been heard. Here’s how someone else might see what you’re going through —
-      someone who cares, who’s watching you try, who’s rooting for your future.
+      Imagine someone you love is telling your story.<br>
+      How would they describe you? What would they highlight that you've forgotten?<br>
+      This is your moment to reflect.
     </p>
 
-    <p>
-      "I saw you walk in that day, carrying everything you never said out loud. You kept going,
-      even when it didn’t feel like enough. But it was. It still is. What you’ve survived didn’t break you.
-      It’s shaping who you become."
-    </p>
+    <a href="startstory.html" class="btn">⬅ Back to Start</a>
+    <a href="dallevision.html" class="btn">Next: Your Transformation</a>
 
-    <div class="art-placeholder">
-      AI art of your transformation will appear here
-    </div>
-
-    <a href="dalle-art.html" class="btn">See Your Journey</a>
+    <footer>
+      &copy; 2025 WildMind | <a href="about.html" style="color:#aaa;">About Us</a>
+    </footer>
   </div>
 </body>
 </html>
