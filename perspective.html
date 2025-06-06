@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perspective Playback - Echo & Chronicle</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #f9f9f9;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeIn 2s ease;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .art-placeholder {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      background-color: #333;
+      margin: 30px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-style: italic;
+      border-radius: 12px;
+    }
+    .btn {
+      background-color: #fff;
+      color: #111;
+      padding: 12px 24px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #eee;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Story, Through Someone Else's Eyes</h1>
+    <p>
+      You’ve been heard. Here’s how someone else might see what you’re going through —
+      someone who cares, who’s watching you try, who’s rooting for your future.
+    </p>
+
+    <p>
+      "I saw you walk in that day, carrying everything you never said out loud. You kept going,
+      even when it didn’t feel like enough. But it was. It still is. What you’ve survived didn’t break you.
+      It’s shaping who you become."
+    </p>
+
+    <div class="art-placeholder">
+      AI art of your transformation will appear here
+    </div>
+
+    <a href="dalle-art.html" class="btn">See Your Journey</a>
+  </div>
+</body>
+</html>
