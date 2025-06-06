@@ -3,53 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E2EQ Check-In</title>
+  <title>Post-Reflection Checkout – E2EQ</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #0b0c10;
-      color: #ffffff;
+      background-color: #111;
+      color: #fff;
       text-align: center;
-      padding: 40px;
+      padding: 40px 20px;
     }
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
-    p {
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: 0 auto 30px auto;
+    label {
+      display: block;
+      margin: 20px 0 10px;
     }
-    iframe {
-      width: 100%;
-      height: 600px;
+    input, textarea, select {
+      width: 90%;
+      max-width: 600px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
       border: none;
-      border-radius: 8px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 30px;
-      font-size: 1rem;
-      background-color: #ffffff;
-      color: #0b0c10;
-      text-decoration: none;
       border-radius: 4px;
-      transition: background-color 0.3s;
     }
-    .btn:hover {
-      background-color: #cccccc;
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ddd;
     }
   </style>
 </head>
 <body>
-  <h1>Reflection Check-In</h1>
-  <p>Before we guide you into final thoughts and coaching resources, take a moment to complete this short check-in. It helps you see where you are now — and helps us understand how storytelling affects emotional intelligence.</p>
+  <h1>How do you feel now?</h1>
+  <p>Now that you've reflected and seen your story through new eyes, how has your emotional state shifted?</p>
 
-  <!-- E2EQ Check-In Embed (replace src with working form link) -->
-  <iframe src="https://tally.so/r/your-form-id"></iframe>
+  <form action="dalle.html">
+    <label for="confidence">How confident do you feel after completing this process?</label>
+    <select id="confidence" name="confidence">
+      <option value="1">Not confident at all</option>
+      <option value="2">Somewhat hesitant</option>
+      <option value="3">Neutral</option>
+      <option value="4">More confident</option>
+      <option value="5">Very confident</option>
+    </select>
 
-  <a href="nextstep.html" class="btn">Continue</a>
+    <label for="emotion">One word that describes your emotional state now:</label>
+    <input type="text" id="emotion" name="emotion" placeholder="e.g., hopeful, relieved, proud" />
+
+    <label for="insight">What changed or landed most clearly for you?</label>
+    <textarea id="insight" name="insight" rows="5" placeholder="Write a short reflection here..."></textarea>
+
+    <button type="submit">Continue to DALL·E Transformation</button>
+  </form>
 </body>
 </html>
