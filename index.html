@@ -28,6 +28,18 @@
       margin: 8px 0;
       width: 100%;
       max-width: 300px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    button {
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ddd;
     }
 
     .error {
@@ -47,27 +59,17 @@
 
   <script>
     function checkAccess() {
+      const username = document.getElementById('username').value.trim();
       const code = document.getElementById('accessCode').value.trim();
-      const allowedCodes = ['wildmind2025', 'echo001', 'pilot22']; // You can edit/add more here
+      const allowedCodes = ['wildmind2025', 'echo001', 'pilot22']; // Add/remove codes here
 
-      if (allowedCodes.includes(code)) {
-        window.location.href = "prototype.html"; // This is your full experience
+      if (username && allowedCodes.includes(code)) {
+        window.location.href = "landing.html"; // 👈 direct to welcome video page
       } else {
         document.getElementById('errorMsg').style.display = 'block';
       }
     }
   </script>
-<script>
-  document.querySelector("button").addEventListener("click", function () {
-    const username = document.querySelector("input[type='text']").value.trim();
-    const code = document.querySelector("input[type='password']").value.trim();
 
-    if (username && code === "wildmind2025") {
-      window.location.href = "start.html"; // or prototype.html if that’s your next step
-    } else {
-      alert("Access denied. Please check your code.");
-    }
-  });
-</script>
 </body>
 </html>
