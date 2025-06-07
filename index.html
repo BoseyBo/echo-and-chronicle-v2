@@ -2,74 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Echo & Chronicle Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo & Chronicle | Start Your Story</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
       background-color: #111;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 20px;
     }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    input, button {
-      padding: 12px;
-      font-size: 16px;
-      margin: 8px 0;
+    iframe {
+      display: block;
       width: 100%;
-      max-width: 300px;
-      border-radius: 4px;
+      height: 100vh;
       border: none;
-    }
-
-    button {
-      background-color: #fff;
-      color: #000;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #ddd;
-    }
-
-    .error {
-      color: red;
-      margin-top: 10px;
-      display: none;
     }
   </style>
 </head>
 <body>
-
-  <h1>Echo & Chronicle Access</h1>
-  <input type="text" id="username" placeholder="Enter your name" required />
-  <input type="password" id="accessCode" placeholder="Enter access code" required />
-  <button onclick="checkAccess()">Enter</button>
-  <p id="errorMsg" class="error">Invalid access code. Please try again.</p>
-
-  <script>
-    function checkAccess() {
-      const username = document.getElementById('username').value.trim();
-      const code = document.getElementById('accessCode').value.trim();
-      const allowedCodes = ['wildmind2025', 'echo001', 'pilot22']; // Add/remove codes here
-
-      if (username && allowedCodes.includes(code)) {
-        window.location.href = "landing.html"; // 👈 direct to welcome video page
-      } else {
-        document.getElementById('errorMsg').style.display = 'block';
-      }
-    }
-  </script>
-
+  <iframe
+    src="https://tally.so/r/wbExz6"
+    title="Echo & Chronicle Access Request"
+    allow="camera; microphone; fullscreen; clipboard-read; clipboard-write">
+  </iframe>
 </body>
 </html>
