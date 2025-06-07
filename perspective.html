@@ -50,7 +50,8 @@
   <button onclick="sendPrompt('insight')">Show me what I might be missing</button>
 
   <pre id="reflection">AI insight will appear here...</pre>
-
+<br/>
+<button onclick="window.location.href='dalle.html'">Next: Visual Transformation</button>
   <script>
     async function sendPrompt(type) {
       const story = sessionStorage.getItem("userStory") || "This is a placeholder story.";
