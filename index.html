@@ -57,6 +57,17 @@
       }
     }
   </script>
+<script>
+  document.querySelector("button").addEventListener("click", function () {
+    const username = document.querySelector("input[type='text']").value.trim();
+    const code = document.querySelector("input[type='password']").value.trim();
 
+    if (username && code === "wildmind2025") {
+      window.location.href = "start.html"; // or prototype.html if that’s your next step
+    } else {
+      alert("Access denied. Please check your code.");
+    }
+  });
+</script>
 </body>
 </html>
