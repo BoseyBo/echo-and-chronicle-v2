@@ -1,35 +1,63 @@
-<!-- therapy.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Therapy - Echo & Chronicle</title>
+  <title>Therapy – Echo & Chronicle</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #111;
       color: #fff;
+      padding: 40px 20px;
       text-align: center;
-      padding: 60px 20px;
     }
     h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
+      font-size: 32px;
+      margin-bottom: 10px;
     }
     p {
       font-size: 18px;
+      color: #ccc;
       max-width: 700px;
-      margin: 0 auto 30px auto;
-      line-height: 1.6;
+      margin: 20px auto;
+    }
+    .section {
+      background-color: #1c1c1c;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    ul {
+      text-align: left;
+      color: #bbb;
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 0;
+      list-style-type: none;
+    }
+    ul li::before {
+      content: "• ";
+      color: #888;
+    }
+    .button-row {
+      margin-top: 30px;
     }
     .btn {
+      margin: 10px;
       padding: 12px 24px;
       font-size: 16px;
       background-color: #fff;
       color: #000;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
     }
@@ -39,16 +67,29 @@
   </style>
 </head>
 <body>
-  <h1>Healing Starts with Understanding</h1>
-  <p>
-    Therapy is where real healing begins. Whether you're unpacking trauma, grieving a loss, or just feel stuck —
-    we work with licensed professionals who meet you where you are.
-    Many accept insurance and specialize in supporting high-performance and service communities.
-  </p>
-  <p>
-    Partners include UCLA, Warrior’s Heart, and local community-first organizations that offer
-    trauma-informed, culturally aware, and discreet support.
-  </p>
-  <a class="btn" href="partners.html">Explore Therapy Partners</a>
+  <h1>Therapy Is for the Whole You</h1>
+  <p>Sometimes we carry things we’ve learned to hide. Therapy creates space to unpack, process, and move forward with support.</p>
+
+  <div class="section">
+    <h2>Therapy Might Help If You're...</h2>
+    <ul>
+      <li>Living with burnout, anxiety, or invisible pressure</li>
+      <li>Experiencing mood swings, shutdowns, or insomnia</li>
+      <li>Repeating emotional patterns or unhealthy relationships</li>
+      <li>Feeling numb, unmotivated, or disconnected from people you care about</li>
+      <li>Trying to process trauma, loss, or major life shifts</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Our Therapy Partners</h2>
+    <p>We collaborate with trusted therapists across diverse communities — from local practitioners to national partners like UCLA and Warrior’s Heart — to offer trauma-informed, discreet, and effective support. Many accept insurance.</p>
+  </div>
+
+  <div class="button-row">
+    <a class="btn" href="partners.html">Meet Our Partners</a>
+    <a class="btn" href="resources.html">Self-Guided Tools</a>
+    <a class="btn" href="coaching.html">Explore Coaching Instead</a>
+  </div>
 </body>
 </html>
