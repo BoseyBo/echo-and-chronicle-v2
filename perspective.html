@@ -1,68 +1,23 @@
-<!-- perspective.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perspective Shift | Echo & Chronicle</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-    .btn {
-      padding: 12px 20px;
-      font-size: 16px;
-      background-color: #fff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      margin: 10px;
-      display: inline-block;
-    }
-    .btn:hover {
-      background-color: #ccc;
-    }
-    footer {
-      margin-top: 60px;
-      font-size: 13px;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>See Yourself Through Their Eyes</h1>
-    <p>
-      Imagine someone you love is telling your story.<br>
-      How would they describe you? What would they highlight that you've forgotten?<br>
-      This is your moment to reflect.
-    </p>
+<script>
+  async function sendPrompt(type) {
+    const story = sessionStorage.getItem("userStory");
+    const prompt = type === 'others'
+      ? "Reframe the following story as if someone they love were telling it about them. Focus on kindness, support, and what the person might not see in themselves."
+      : "Reflect this story back with thoughtful insights. Highlight themes they might be overlooking — patterns, strengths, or meaning.";
 
-    <a href="startstory.html" class="btn">⬅ Back to Start</a>
-    <a href="dallevision.html" class="btn">Next: Your Transformation</a>
+    const response = await fetch("https://your-llm-plugin-endpoint.com/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ story, prompt })
+    });
 
-    <footer>
-      &copy; 2025 WildMind | <a href="about.html" style="color:#aaa;">About Us</a>
-    </footer>
-  </div>
-</body>
-</html>
+    const data = await response.json();
+    document.getElementById("reflection").innerText = data.output;
+  }
+</script>
+
+<h2>Choose your lens</h2>
+<button onclick="sendPrompt('others')">How someone who loves me might tell it</button>
+<button onclick="sendPrompt('insight')">Show me what I might be missing</button>
+
+<pre id="reflection" style="margin-top: 20px; text-align: left; white-space: pre-wrap;">AI insight will appear here...</pre>
