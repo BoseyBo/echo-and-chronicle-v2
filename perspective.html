@@ -1,18 +1,22 @@
 <script>
   async function sendPrompt(type) {
-    const story = sessionStorage.getItem("userStory");
-    const prompt = type === 'others'
-      ? "Reframe the following story as if someone they love were telling it about them. Focus on kindness, support, and what the person might not see in themselves."
-      : "Reflect this story back with thoughtful insights. Highlight themes they might be overlooking — patterns, strengths, or meaning.";
+    const story = sessionStorage.getItem("userStory") || "This is a placeholder story.";
+    
+    // Mock different prompts based on which button is pressed
+    let prompt;
+    if (type === "others") {
+      prompt = "How would someone who loves me describe this story with kindness, support, and perspective?";
+    } else {
+      prompt = "What might I be missing in this story that someone with insight would point out?";
+    }
 
-    const response = await fetch("https://your-llm-plugin-endpoint.com/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ story, prompt })
-    });
+    // Simulate a fake AI response
+    const mockResponse = (type === "others")
+      ? "They might say: You're stronger than you realize. Even in pain, you’re still trying to understand."
+      : "You might be missing: The fact that you showed courage even when you felt like quitting.";
 
-    const data = await response.json();
-    document.getElementById("reflection").innerText = data.output;
+    // Display mock response
+    document.getElementById("reflection").innerText = mockResponse;
   }
 </script>
 
