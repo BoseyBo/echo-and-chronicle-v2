@@ -3,59 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perspective Shift – Echo & Chronicle</title>
+  <title>Perspective Lens – Echo & Chronicle</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
       color: #fff;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
-
     h2 {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 20px;
     }
-
     button {
+      padding: 12px 24px;
+      font-size: 16px;
       background-color: #fff;
       color: #000;
       border: none;
-      padding: 12px 20px;
+      border-radius: 5px;
       margin: 10px;
-      font-size: 16px;
-      border-radius: 6px;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #ddd;
     }
-
     pre {
-      margin-top: 20px;
-      text-align: left;
-      white-space: pre-wrap;
+      margin-top: 30px;
       background-color: #222;
       padding: 20px;
+      text-align: left;
+      white-space: pre-wrap;
       border-radius: 6px;
+      font-family: monospace;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
 
-  <h2>Choose your lens</h2>
+  <h2>Choose Your Lens</h2>
   <button onclick="sendPrompt('others')">How someone who loves me might tell it</button>
-  <button onclick="sendPrompt('insight')">Show me what I might be missing</button>
+  <button onclick="sendPrompt('insight')">What might I be missing?</button>
 
   <pre id="reflection">AI insight will appear here...</pre>
-<br/>
-<button onclick="window.location.href='dalle.html'">Next: Visual Transformation</button>
+
+  <br>
+  <button onclick="window.location.href='dalle.html'">Next: Visual Transformation</button>
+
   <script>
     async function sendPrompt(type) {
       const story = sessionStorage.getItem("userStory") || "This is a placeholder story.";
-
       let prompt;
       if (type === "others") {
         prompt = "How would someone who loves me describe this story with kindness, support, and perspective?";
@@ -63,6 +64,7 @@
         prompt = "What might I be missing in this story that someone with insight would point out?";
       }
 
+      // Fake AI reflection (for now — replace with API later)
       const mockResponse = (type === "others")
         ? "They might say: You're stronger than you realize. Even in pain, you’re still trying to understand."
         : "You might be missing: The fact that you showed courage even when you felt like quitting.";
