@@ -3,87 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources – Echo & Chronicle</title>
+  <title>Resources - Echo & Chronicle</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #111;
       color: #fff;
-      text-align: center;
       padding: 40px 20px;
+      text-align: center;
     }
+
     h1 {
-      font-size: 32px;
+      font-size: 36px;
       margin-bottom: 10px;
     }
+
     p {
       font-size: 18px;
       color: #ccc;
+      margin-bottom: 40px;
       max-width: 700px;
-      margin: 20px auto;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .section {
-      margin: 40px auto;
-      max-width: 800px;
-      background-color: #1c1c1c;
-      padding: 30px;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .resource {
+      background: #1c1c1c;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
       text-align: left;
     }
-    h2 {
-      font-size: 24px;
+
+    .resource h2 {
       color: #fff;
+      font-size: 20px;
+      margin-bottom: 10px;
     }
-    ul {
+
+    .resource p {
       color: #bbb;
-      padding-left: 20px;
+      font-size: 16px;
+      margin-bottom: 12px;
     }
-    ul li {
-      margin: 10px 0;
-    }
-    a.btn {
+
+    .btn {
       display: inline-block;
-      margin: 20px 10px 0;
-      padding: 12px 24px;
+      padding: 10px 18px;
       background-color: #fff;
       color: #000;
-      border-radius: 5px;
       text-decoration: none;
+      border-radius: 5px;
       font-weight: bold;
+      font-size: 14px;
     }
-    a.btn:hover {
+
+    .btn:hover {
       background-color: #ddd;
     }
   </style>
 </head>
 <body>
+  <h1>Featured Resources</h1>
+  <p>Each of these tools was designed to help you reflect, reconnect, and build emotional intelligence — on your terms.</p>
 
-  <h1>Still Gathering Yourself?</h1>
-  <p>You don’t have to decide right away. These tools can help you reflect, regulate, and reach out when you're ready.</p>
+  <div class="grid">
+    <div class="resource">
+      <h2>🕊️ WildMind Two Bird Journal</h2>
+      <p>Track your inner world and outer actions in parallel. This unique format helps spot emotional patterns and breakthroughs over time.</p>
+      <a class="btn" href="#">Download Journal</a>
+    </div>
 
-  <div class="section">
-    <h2>Self-Guided Tools</h2>
-    <ul>
-      <li><strong>Emotional Inventory Worksheet</strong> – Sort what you're feeling and why it might matter</li>
-      <li><strong>Journaling Prompts</strong> – Free write ideas when you're stuck or spiraling</li>
-      <li><strong>Regulation Skills</strong> – Quick grounding techniques (box breathing, 5-sense scan)</li>
-      <li><strong>Mood Check Tracker</strong> – Daily 1-minute check-in you can export or print</li>
-    </ul>
-    <a class="btn" href="download.html">Download Tools</a>
+    <div class="resource">
+      <h2>📘 Two Bird Teacher’s Toolkit</h2>
+      <p>Designed for educators, counselors, and facilitators. Includes worksheets, classroom prompts, and emotional fluency games.</p>
+      <a class="btn" href="#">View Toolkit</a>
+    </div>
+
+    <div class="resource">
+      <h2>🎙️ EQE2 Workshops</h2>
+      <p>Interactive group sessions using the Echo & Chronicle framework to build emotional insight through story-driven dialogue.</p>
+      <a class="btn" href="#">Book a Workshop</a>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>Want to Talk to Someone?</h2>
-    <p>We’ll connect you with a trained listener — not a therapist or coach, just a calm presence. One step at a time.</p>
-    <a class="btn" href="mailto:support@echoandchronicle.com">Request a Quiet Conversation</a>
-  </div>
-
-  <div class="section">
-    <h2>Or Loop Back When You're Ready</h2>
-    <a class="btn" href="therapy.html">Explore Therapy</a>
-    <a class="btn" href="coaching.html">Explore Coaching</a>
-  </div>
-
+  <p>Want more? From podcasts to book recs and printables, we're constantly adding to this space.</p>
+  <a class="btn" href="#">See Full Library</a>
 </body>
 </html>
