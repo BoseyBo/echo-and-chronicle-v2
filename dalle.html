@@ -19,13 +19,13 @@
     p {
       font-size: 18px;
       color: #bbb;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     .option {
       border: 2px solid #444;
@@ -55,9 +55,18 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin: 10px;
     }
     button:hover {
       background-color: #ddd;
+    }
+    .image-preview {
+      margin-top: 30px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
@@ -66,7 +75,7 @@
   <h1>Your Transformation Style</h1>
   <p>How would you like your journey visualized? Pick a style that fits your vibe right now.</p>
 
-  <form action="coaching.html">
+  <form id="styleForm" onsubmit="generateImage(event)">
     <div class="grid">
       <label class="option">
         <input type="radio" name="style" value="hopeful" required />
@@ -93,8 +102,39 @@
       </label>
     </div>
 
-    <button type="submit">Continue</button>
+    <button type="submit">Generate</button>
   </form>
+
+  <div class="image-preview" id="imagePreview" style="display:none;">
+    <img id="generatedImage" src="" alt="Your Transformation Image" />
+    <br/>
+    <button onclick="generateStainedGlass()">Try a Stained Glass Version</button>
+    <button onclick="window.location.href='coaching.html'">Continue</button>
+    <a id="downloadLink" download="transformation.jpg">
+      <button>Download Image</button>
+    </a>
+  </div>
+
+  <script>
+    function generateImage(event) {
+      event.preventDefault();
+      const selectedStyle = document.querySelector('input[name="style"]:checked').value;
+
+      // For now use mock image URL
+      const mockImage = `https://placehold.co/600x400?text=${selectedStyle}+Vision`;
+
+      document.getElementById('generatedImage').src = mockImage;
+      document.getElementById('downloadLink').href = mockImage;
+      document.getElementById('imagePreview').style.display = 'block';
+    }
+
+    function generateStainedGlass() {
+      const selectedStyle = document.querySelector('input[name="style"]:checked').value;
+      const stainedGlass = `https://placehold.co/600x400?text=${selectedStyle}+in+Stained+Glass`;
+      document.getElementById('generatedImage').src = stainedGlass;
+      document.getElementById('downloadLink').href = stainedGlass;
+    }
+  </script>
 
 </body>
 </html>
