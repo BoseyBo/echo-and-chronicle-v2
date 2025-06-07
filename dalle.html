@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transformation Vision – Echo & Chronicle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Transformation – Echo & Chronicle</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -12,21 +12,25 @@
       padding: 40px 20px;
       text-align: center;
     }
+
     h1 {
       font-size: 32px;
       margin-bottom: 10px;
     }
+
     p {
       font-size: 18px;
       color: #bbb;
       margin-bottom: 30px;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       margin-bottom: 30px;
     }
+
     .option {
       border: 2px solid #444;
       border-radius: 10px;
@@ -35,18 +39,22 @@
       cursor: pointer;
       transition: 0.3s;
     }
+
     .option:hover {
       border-color: #fff;
       background-color: #222;
     }
+
     .option h3 {
       margin-top: 10px;
       color: #fff;
     }
+
     .option p {
       font-size: 14px;
       color: #aaa;
     }
+
     button {
       padding: 12px 28px;
       font-size: 16px;
@@ -55,84 +63,88 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      margin: 10px;
+      margin: 12px;
     }
+
     button:hover {
       background-color: #ddd;
     }
-    .image-preview {
-      margin-top: 30px;
+
+    #imagePreview {
+      margin: 30px 0;
+      display: none;
     }
+
     img {
       max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
   <h1>Your Transformation Style</h1>
-  <p>How would you like your journey visualized? Pick a style that fits your vibe right now.</p>
+  <p>Pick a visual lens to reflect your journey. What style fits your emotional state right now?</p>
 
-  <form id="styleForm" onsubmit="generateImage(event)">
+  <form id="styleForm">
     <div class="grid">
       <label class="option">
-        <input type="radio" name="style" value="hopeful" required />
+        <input type="radio" name="style" value="Hopeful Light" required />
         <h3>Hopeful Light</h3>
         <p>Pastels, sunrise energy, rebirth and renewal</p>
       </label>
-
       <label class="option">
-        <input type="radio" name="style" value="warrior" />
+        <input type="radio" name="style" value="Inner Warrior" />
         <h3>Inner Warrior</h3>
         <p>Bold contrast, grit, scars, and sacred power</p>
       </label>
-
       <label class="option">
-        <input type="radio" name="style" value="mystic" />
+        <input type="radio" name="style" value="Mystic Healing" />
         <h3>Mystic Healing</h3>
         <p>Dreamlike themes, mythic symbols, gentle surrealism</p>
       </label>
-
       <label class="option">
-        <input type="radio" name="style" value="urban" />
+        <input type="radio" name="style" value="Urban Mirror" />
         <h3>Urban Mirror</h3>
         <p>Street style, struggle, concrete roots, and fire</p>
       </label>
     </div>
 
-    <button type="submit">Generate</button>
+    <button type="button" onclick="generateMockImage()">Generate</button>
   </form>
 
-  <div class="image-preview" id="imagePreview" style="display:none;">
-    <img id="generatedImage" src="" alt="Your Transformation Image" />
+  <div id="imagePreview">
+    <h3>Your Image</h3>
+    <img id="generatedImage" src="" alt="Generated Visual" />
     <br/>
-    <button onclick="generateStainedGlass()">Try a Stained Glass Version</button>
+    <button onclick="generateStainedGlass()">Try Again with Stained Glass</button>
+    <br/>
+    <a id="downloadLink" href="#" download="transformation.png">Download Image</a>
+    <br/><br/>
     <button onclick="window.location.href='coaching.html'">Continue</button>
-    <a id="downloadLink" download="transformation.jpg">
-      <button>Download Image</button>
-    </a>
   </div>
 
   <script>
-    function generateImage(event) {
-      event.preventDefault();
-      const selectedStyle = document.querySelector('input[name="style"]:checked').value;
-
-      // For now use mock image URL
-      const mockImage = `https://placehold.co/600x400?text=${selectedStyle}+Vision`;
-
-      document.getElementById('generatedImage').src = mockImage;
-      document.getElementById('downloadLink').href = mockImage;
-      document.getElementById('imagePreview').style.display = 'block';
+    function generateMockImage() {
+      const selectedStyle = document.querySelector("input[name='style']:checked").value;
+      const mockImage = `https://placehold.co/600x400?text=${selectedStyle.replace(/ /g, '+')}`;
+      document.getElementById("generatedImage").src = mockImage;
+      document.getElementById("downloadLink").href = mockImage;
+      document.getElementById("imagePreview").style.display = 'block';
     }
 
     function generateStainedGlass() {
-      const selectedStyle = document.querySelector('input[name="style"]:checked').value;
-      const stainedGlass = `https://placehold.co/600x400?text=${selectedStyle}+in+Stained+Glass`;
-      document.getElementById('generatedImage').src = stainedGlass;
-      document.getElementById('downloadLink').href = stainedGlass;
+      const selectedStyle = document.querySelector("input[name='style']:checked").value;
+      const stainedGlass = `https://placehold.co/600x400?text=${selectedStyle.replace(/ /g, '+')}+in+Stained+Glass`;
+      document.getElementById("generatedImage").src = stainedGlass;
+      document.getElementById("downloadLink").href = stainedGlass;
     }
   </script>
 
