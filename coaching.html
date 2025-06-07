@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coaching or Therapy? – Echo & Chronicle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coaching – Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
-      padding: 40px 20px;
       text-align: center;
+      padding: 60px 20px;
     }
     h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 36px;
+      margin-bottom: 20px;
     }
     p {
       font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      line-height: 1.6;
       color: #ccc;
-      margin: 20px auto;
-      max-width: 720px;
     }
     .section {
       margin: 40px auto;
@@ -28,39 +29,49 @@
       background: #1c1c1c;
       border-radius: 10px;
       padding: 30px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.5);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     }
     h2 {
-      color: #fff;
+      font-size: 28px;
+      margin-bottom: 15px;
     }
     ul {
       text-align: left;
       color: #bbb;
       max-width: 600px;
       margin: 0 auto;
+      padding-left: 20px;
     }
-    button {
-      margin: 20px 10px;
-      padding: 12px 28px;
+    li {
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 20px 10px 0 10px;
+      padding: 12px 24px;
       font-size: 16px;
       background-color: #fff;
       color: #000;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
     }
-    button:hover {
+    .btn:hover {
       background-color: #ddd;
     }
   </style>
 </head>
 <body>
+
   <h1>Support That Fits You</h1>
   <p>You've just reflected deeply. Now you're ready to decide how to move forward—with the right kind of support for your next chapter.</p>
 
   <div class="section">
     <h2>What's Coaching?</h2>
-    <p>Coaching is future-focused. It's about growth, goals, and turning insights into action.</p>
+    <p>
+      Coaching is future-focused. It’s about growth, goals, and turning insights into action.
+    </p>
     <ul>
       <li>Clarify a personal or professional vision</li>
       <li>Build confidence after crisis or change</li>
@@ -70,25 +81,14 @@
   </div>
 
   <div class="section">
-    <h2>What's Therapy?</h2>
-    <p>Therapy helps with emotional healing, trauma processing, and uncovering deeper patterns. It's safe space for all of you—past, present, and future.</p>
-    <ul>
-      <li>Process grief, trauma, anxiety, or depression</li>
-      <li>Understand emotional cycles and attachment patterns</li>
-      <li>Heal from burnout, PTSD, or invisible wounds</li>
-      <li>Gain emotional tools, regulation, and safety</li>
-    </ul>
-  </div>
-
-  <div class="section">
     <h2>Still Not Sure?</h2>
     <p>That's okay. Sometimes the next step is just talking to someone who gets it. We'll help you connect to resources that match your goals.</p>
   </div>
 
   <div>
-    <button onclick="window.location.href='coaching.html'">Explore Coaching</button>
-    <button onclick="window.location.href='therapy.html'">Explore Therapy</button>
-    <button onclick="window.location.href='resources.html'">Additional Resources</button>
+    <a class="btn" href="therapy.html">Explore Therapy</a>
+    <a class="btn" href="resources.html">Additional Resources</a>
   </div>
+
 </body>
 </html>
