@@ -2,114 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perspective | Echo & Chronicle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perspective Summary | Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
       color: #fff;
       font-family: Arial, sans-serif;
+      padding: 40px 20px;
       text-align: center;
-      padding: 60px 20px;
     }
 
     h2 {
-      font-size: 28px;
+      font-size: 26px;
       margin-bottom: 10px;
     }
 
-    p {
-      color: #ccc;
-      font-size: 16px;
-      margin-bottom: 40px;
+    .summary {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      display: inline-block;
+      max-width: 600px;
+      width: 90%;
+      text-align: left;
     }
 
-    select {
-      padding: 10px;
+    .summary p {
       font-size: 16px;
-      margin-bottom: 30px;
-      background-color: #222;
-      color: #fff;
-      border: 1px solid #444;
-      border-radius: 6px;
+      margin-bottom: 10px;
     }
 
     button {
-      background-color: #4CAF50;
-      color: white;
+      margin-top: 40px;
       padding: 12px 24px;
       font-size: 16px;
+      background-color: #4CAF50;
       border: none;
       border-radius: 6px;
+      color: white;
       cursor: pointer;
-      margin-top: 20px;
     }
 
     button:hover {
       background-color: #3e8e41;
     }
-
-    .ai-preview {
-      margin-top: 50px;
-      background-color: #1c1c1c;
-      padding: 30px;
-      border-left: 4px solid #4CAF50;
-      width: 80%;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 8px;
-    }
-
-    .ai-preview p {
-      font-style: italic;
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    blockquote {
-      color: #fff;
-      font-size: 18px;
-      margin-top: 20px;
-      font-style: normal;
-    }
   </style>
 </head>
 <body>
-  <h2>Try seeing your story through someone else's eyes</h2>
-  <p>Select a perspective that matters. Imagine what they’d feel, say, or want for you.</p>
+  <h2>Your Lens Reflection</h2>
 
-  <select id="perspective-select">
-    <option value="younger">Your younger self</option>
-    <option value="mentor">A Mentor</option>
-    <option value="parent">A Parent</option>
-    <option value="partner">A Partner</option>
-    <option value="future">Your future self</option>
-  </select>
-
-  <br><br>
-  <button onclick="showAIQuote()">Reflect</button>
-
-  <div class="ai-preview" id="quote-box" style="display:none;">
-    <p>This is what someone might say after reading your story:</p>
-    <blockquote id="ai-quote">...</blockquote>
+  <div class="summary">
+    <p><strong>Selected Emotions:</strong> <span id="emotions"></span></p>
+    <p><strong>Custom Tag:</strong> <span id="tag"></span></p>
+    <p><strong>AI Scene Prompt:</strong> <span id="prompt"></span></p>
   </div>
 
-  <script>
-    const quotes = {
-      younger: "I'm proud of you for surviving what I couldn't understand at the time.",
-      mentor: "You carried more than most people ever knew. That takes strength.",
-      parent: "No matter what happened, you were always worth protecting.",
-      partner: "I wish I had seen you more clearly when you needed me.",
-      future: "You’ve already come further than you thought. Keep going — I’m right here."
-    };
+  <button onclick="nextStep()">Save & Continue</button>
 
-    function showAIQuote() {
-      const select = document.getElementById("perspective-select");
-      const value = select.value;
-      const quote = quotes[value] || "I'm here with you. Let's find the meaning together.";
-      document.getElementById("ai-quote").innerText = `"${quote}"`;
-      document.getElementById("quote-box").style.display = "block";
+  <script>
+    // Get values from URL query params
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('emotions').textContent = params.get('selectedEmotions') || 'None';
+    document.getElementById('tag').textContent = params.get('customTag') || 'None';
+    document.getElementById('prompt').textContent = params.get('aiPrompt') || 'None';
+
+    function nextStep() {
+      alert("✅ Data captured. Next: Export or therapist handoff.");
+      // In future: Redirect to PDF, webhook, or therapist preview
     }
   </script>
 </body>
