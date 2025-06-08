@@ -2,53 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lens Selection | Echo & Chronicle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lens Select | Echo & Chronicle</title>
   <style>
     body {
-      background: #111;
-      color: #eee;
-      font-family: sans-serif;
-      padding: 40px;
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
     }
     h2 {
       font-size: 28px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
-    label {
+    .checkbox-group {
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto 30px;
+    }
+    .checkbox-group label {
       display: block;
-      margin: 8px 0;
+      margin: 10px 0;
+      font-size: 18px;
     }
-    input[type="checkbox"] {
-      margin-right: 8px;
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background-color: #222;
+      color: #fff;
     }
     button {
-      margin-top: 24px;
-      padding: 12px 24px;
-      background: #444;
-      color: #fff;
+      background-color: #4CAF50;
       border: none;
-      font-size: 18px;
+      padding: 12px 24px;
+      color: white;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 6px;
+    }
+    button:hover {
+      background-color: #3e8e41;
     }
   </style>
 </head>
 <body>
   <h2>Select the emotions and lenses that match your story</h2>
 
-  <form action="perspective.html" method="get">
+  <div class="checkbox-group">
     <label><input type="checkbox" name="lens" value="resilience" /> Resilience</label>
     <label><input type="checkbox" name="lens" value="grief" /> Grief</label>
     <label><input type="checkbox" name="lens" value="identity" /> Identity</label>
     <label><input type="checkbox" name="lens" value="betrayal" /> Betrayal</label>
     <label><input type="checkbox" name="lens" value="forgiveness" /> Forgiveness</label>
     <label><input type="checkbox" name="lens" value="legacy" /> Legacy</label>
+    <input type="text" placeholder="Add your own tag" />
+  </div>
 
-    <label style="margin-top: 24px;">Add your own tag:
-      <input type="text" name="custom" placeholder="Optional" />
-    </label>
-
-    <button type="submit">Continue</button>
-  </form>
+  <button onclick="location.href='perspective.html'">Continue</button>
 </body>
 </html>
