@@ -1,63 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Echo & Chronicle | Start Your Story</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px 20px;
-    }
+<form id="emailForm">
+  <label for="email">Optional: Get updates or access your story later</label>
+  <input type="email" name="email" id="email" placeholder="your@email.com" required />
+  <button type="submit">Continue</button>
+</form>
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
+<script>
+  document.getElementById('emailForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Stop normal form behavior
 
-    p {
-      font-size: 18px;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
+    const email = document.getElementById('email').value.trim();
 
-    input[type="email"] {
-      padding: 12px;
-      width: 280px;
-      font-size: 16px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      border: none;
-    }
+    if (email.toLowerCase() === "debo@wildmind.com") {
+      window.location.href = "eq2-checkin.html"; // Secret redirect
+    } else {
+      // Fallback: Submit to Formspree as usual
+      const form = document.createElement('form');
+      form.action = "https://formspree.io/f/xeokevze";
+      form.method = "POST";
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+      const inputEmail = document.createElement('input');
+      inputEmail.type = "hidden";
+      inputEmail.name = "email";
+      inputEmail.value = email;
 
-    button:hover {
-      background-color: #3e8e41;
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to Echo & Chronicle</h1>
-  <p>Begin your story by entering your email below. We'll use it to give you access later if you want to return.</p>
+      const inputRedirect = document.createElement('input');
+      inputRedirect.type = "hidden";
+      inputRedirect.name = "_redirect";
+      inputRedirect.value = "https://echoandchronicle.com/eq2-checkin.html";
 
-  <form action="https://formspree.io/f/xeokevze" method="POST">
-    <input type="email" name="email" id="email" placeholder="your@email.com" required />
-    <input type="hidden" name="source" value="Echo & Chronicle Launch" />
-    <br>
-    <button type="submit">Continue</button>
-  </form>
-</body>
-</html>
+      form.appendChild(inputEmail);
+      form.appendChild(inputRedirect);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  });
+</script>
