@@ -73,35 +73,40 @@
   </style>
 </head>
 <body>
-  <h2>Select the emotions and lenses that match your story</h2>
+  <form action="perspective.html" method="GET" onsubmit="return handleSubmit()">
+    <h2>Select the emotions and lenses that match your story</h2>
 
-  <div class="checkbox-group">
-    <label><input type="checkbox" name="emotion" value="resilience" /> Resilience</label>
-    <label><input type="checkbox" name="emotion" value="grief" /> Grief</label>
-    <label><input type="checkbox" name="emotion" value="identity" /> Identity</label>
-    <label><input type="checkbox" name="emotion" value="betrayal" /> Betrayal</label>
-    <label><input type="checkbox" name="emotion" value="forgiveness" /> Forgiveness</label>
-    <label><input type="checkbox" name="emotion" value="legacy" /> Legacy</label>
-  </div>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="emotion" value="resilience" /> Resilience</label>
+      <label><input type="checkbox" name="emotion" value="grief" /> Grief</label>
+      <label><input type="checkbox" name="emotion" value="identity" /> Identity</label>
+      <label><input type="checkbox" name="emotion" value="betrayal" /> Betrayal</label>
+      <label><input type="checkbox" name="emotion" value="forgiveness" /> Forgiveness</label>
+      <label><input type="checkbox" name="emotion" value="legacy" /> Legacy</label>
+    </div>
 
-  <br />
-  <label for="customTag">Add your own tag:</label>
-  <input type="text" id="customTag" placeholder="Optional" />
+    <label for="customTag">Add your own tag:</label>
+    <input type="text" id="customTag" name="customTag" placeholder="Optional" />
 
-  <br /><br />
-  <button onclick="location.href='perspective.html'">Continue</button>
+    <br /><br />
+    <button type="submit">Continue</button>
 
-  <hr style="margin: 50px auto; width: 60%; border: 1px solid #333;" />
+    <hr style="margin: 50px auto; width: 60%; border: 1px solid #333;" />
 
-  <h2>Optional: Generate an image for your story</h2>
-  <input type="text" id="imagePrompt" placeholder="Describe your scene..." />
-  <br />
-  <button onclick="generateImage()">Generate AI Image</button>
+    <h2>Optional: Generate an image for your story</h2>
+    <input type="text" id="imagePrompt" placeholder="Describe your scene..." />
+    <br />
+    <button type="button" onclick="generateImage()">Generate AI Image</button>
 
-  <div class="image-preview" id="imageArea" style="display: none;">
-    <p>🎨 AI-generated image (placeholder)</p>
-    <img src="https://placehold.co/600x400?text=AI+Image+Coming+Soon" alt="Generated Image" />
-  </div>
+    <div class="image-preview" id="imageArea" style="display: none;">
+      <p>🎨 AI-generated image (placeholder)</p>
+      <img src="https://placehold.co/600x400?text=AI+Image+Coming+Soon" alt="Generated Image" />
+    </div>
+
+    <!-- Hidden fields for tracking -->
+    <input type="hidden" name="selectedEmotions" id="selectedEmotions" />
+    <input type="hidden" name="aiPrompt" id="aiPrompt" />
+  </form>
 
   <script>
     function generateImage() {
@@ -111,8 +116,19 @@
         return;
       }
 
-      // Simulate AI image preview
+      document.getElementById('aiPrompt').value = prompt;
       document.getElementById('imageArea').style.display = 'block';
+    }
+
+    function handleSubmit() {
+      const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+      const selected = Array.from(checked).map(cb => cb.value);
+      document.getElementById('selectedEmotions').value = selected.join(',');
+
+      const prompt = document.getElementById('imagePrompt').value;
+      document.getElementById('aiPrompt').value = prompt;
+
+      return true; // continue form submit
     }
   </script>
 </body>
