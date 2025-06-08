@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Story 📼 Echo & Chronicle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Story 📝 Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
@@ -33,40 +33,28 @@
       margin: 10px 0;
       display: block;
     }
-    input[type="text"] {
-      margin-top: 15px;
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      width: 80%;
-      max-width: 400px;
-    }
     button {
-      background-color: #444;
-      color: #fff;
-      padding: 12px 24px;
+      background-color: #4CAF50;
       border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      padding: 12px 24px;
+      color: white;
       font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
     }
     button:hover {
-      background-color: #666;
+      background-color: #3e8e41;
     }
   </style>
 </head>
 <body>
-  <h1>Upload or record your story</h1>
-  <p>You can share a written note or audio file. We’ll never share it without your okay.</p>
+  <h1>Upload Your Story</h1>
+  <p>Choose a text file or audio file to share your story with us.</p>
   
   <div class="upload-box">
-    <label for="storyFile">Choose a file to upload (text or audio):</label>
-    <input type="file" id="storyFile" name="storyFile" accept=".txt,audio/*" />
-    
-    <label for="storyText">Or write it directly:</label>
-    <input type="text" id="storyText" name="storyText" placeholder="Start your story here…" />
+    <input type="file" accept=".txt, audio/*" />
   </div>
 
-  <button onclick="location.href='lens.html'">Continue</button>
+  <button onclick="location.href='lens.html'">Next: Choose your lens</button>
 </body>
 </html>
