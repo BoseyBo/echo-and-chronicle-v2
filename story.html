@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Story – Echo & Chronicle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Story 📼 Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
@@ -12,18 +12,15 @@
       text-align: center;
       padding: 40px 20px;
     }
-
     h1 {
       font-size: 36px;
       margin-bottom: 20px;
     }
-
     p {
       font-size: 18px;
       color: #ccc;
       margin-bottom: 30px;
     }
-
     .upload-box {
       background: #222;
       padding: 20px;
@@ -32,70 +29,44 @@
       margin: 20px auto 40px;
       max-width: 600px;
     }
-
     input[type="file"] {
       margin: 10px 0;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
-
-    textarea {
-      width: 100%;
-      max-width: 600px;
-      padding: 12px;
-      margin: 20px auto;
-      display: block;
-      background: #1c1c1c;
-      color: #fff;
-      border: 1px solid #444;
+    input[type="text"] {
+      margin-top: 15px;
+      padding: 10px;
       border-radius: 6px;
-      font-size: 16px;
-      resize: vertical;
-    }
-
-    button {
-      padding: 12px 28px;
-      font-size: 16px;
-      background-color: #fff;
-      color: #000;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 30px;
+      width: 80%;
+      max-width: 400px;
     }
-
+    button {
+      background-color: #444;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
     button:hover {
-      background-color: #ddd;
+      background-color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Share Your Story</h1>
-  <p>You can upload a voice recording, written transcript, or just start typing. This is your space.</p>
+  <h1>Upload or record your story</h1>
+  <p>You can share a written note or audio file. We’ll never share it without your okay.</p>
+  
+  <div class="upload-box">
+    <label for="storyFile">Choose a file to upload (text or audio):</label>
+    <input type="file" id="storyFile" name="storyFile" accept=".txt,audio/*" />
+    
+    <label for="storyText">Or write it directly:</label>
+    <input type="text" id="storyText" name="storyText" placeholder="Start your story here…" />
+  </div>
 
-  <form onsubmit="saveStory(event)">
-    <div class="upload-box">
-      <label for="audio">Upload Audio (optional)</label>
-      <input type="file" id="audio" name="audio" accept="audio/*" />
-
-      <label for="transcript">Upload Transcript (optional)</label>
-      <input type="file" id="transcript" name="transcript" accept=".txt,.pdf,.doc,.docx" />
-    </div>
-
-    <label for="story">Or type something here if you’d rather:</label>
-    <textarea id="story" name="story" rows="6" placeholder="Begin writing here..."></textarea>
-
-    <button type="submit">Continue to Perspective</button>
-  </form>
-
-  <script>
-    function saveStory(event) {
-      event.preventDefault();
-      const textInput = document.getElementById("story").value.trim();
-      sessionStorage.setItem("userStory", textInput || "Audio/Transcript uploaded – see files.");
-      window.location.href = "perspective.html";
-    }
-  </script>
+  <button onclick="location.href='lens.html'">Continue</button>
 </body>
 </html>
