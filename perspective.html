@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perspective | Echo & Chronicle</title>
   <style>
     body {
@@ -10,22 +10,22 @@
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
     h2 {
       font-size: 28px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 18px;
-      margin-bottom: 30px;
       color: #ccc;
+      font-size: 16px;
+      margin-bottom: 40px;
     }
 
     select {
-      padding: 12px;
+      padding: 10px;
       font-size: 16px;
       margin-bottom: 30px;
       background-color: #222;
@@ -36,12 +36,13 @@
 
     button {
       background-color: #4CAF50;
-      border: none;
-      padding: 14px 28px;
-      font-size: 16px;
       color: white;
-      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -50,36 +51,66 @@
 
     .ai-preview {
       margin-top: 50px;
-      color: #5cb85c;
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-left: 4px solid #4CAF50;
+      width: 80%;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 8px;
+    }
+
+    .ai-preview p {
+      font-style: italic;
+      color: #aaa;
+      font-size: 14px;
     }
 
     blockquote {
-      font-size: 16px;
-      font-style: italic;
-      margin-top: 10px;
-      color: rgba(255,255,255,0.6);
+      color: #fff;
+      font-size: 18px;
+      margin-top: 20px;
+      font-style: normal;
     }
   </style>
 </head>
 <body>
   <h2>Try seeing your story through someone else's eyes</h2>
-  <p>Pick a perspective that matters. Imagine what they'd feel, say, or want for you.</p>
+  <p>Select a perspective that matters. Imagine what they’d feel, say, or want for you.</p>
 
-  <select>
-    <option>Your younger self</option>
-    <option>Your future self</option>
-    <option>A parent or mentor</option>
-    <option>A child or student</option>
-    <option>Someone who hurt you</option>
-    <option>Someone you helped</option>
+  <select id="perspective-select">
+    <option value="younger">Your younger self</option>
+    <option value="mentor">A Mentor</option>
+    <option value="parent">A Parent</option>
+    <option value="partner">A Partner</option>
+    <option value="future">Your future self</option>
   </select>
 
   <br><br>
-  <button onclick="location.href='index.html'">Finish</button>
+  <button onclick="showAIQuote()">Reflect</button>
 
-  <div class="ai-preview">
+  <div class="ai-preview" id="quote-box" style="display:none;">
     <p>This is what someone might say after reading your story:</p>
-    <blockquote>“I wonder what part of you still holds onto this moment?”</blockquote>
+    <blockquote id="ai-quote">...</blockquote>
   </div>
+
+  <script>
+    const quotes = {
+      younger: "I'm proud of you for surviving what I couldn't understand at the time.",
+      mentor: "You carried more than most people ever knew. That takes strength.",
+      parent: "No matter what happened, you were always worth protecting.",
+      partner: "I wish I had seen you more clearly when you needed me.",
+      future: "You’ve already come further than you thought. Keep going — I’m right here."
+    };
+
+    function showAIQuote() {
+      const select = document.getElementById("perspective-select");
+      const value = select.value;
+      const quote = quotes[value] || "I'm here with you. Let's find the meaning together.";
+      document.getElementById("ai-quote").innerText = `"${quote}"`;
+      document.getElementById("quote-box").style.display = "block";
+    }
+  </script>
 </body>
 </html>
