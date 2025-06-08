@@ -2,26 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Echo & Chronicle | Start Your Story</title>
   <style>
     body {
       margin: 0;
       background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
     }
-    iframe {
-      display: block;
-      width: 100%;
-      height: 100vh;
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      width: 280px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border-radius: 6px;
       border: none;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
     }
   </style>
 </head>
 <body>
-  <iframe
-    src="https://tally.so/r/wbExz6"
-    title="Echo & Chronicle Access Request"
-    allow="camera; microphone; fullscreen; clipboard-read; clipboard-write">
-  </iframe>
+  <h1>Welcome to Echo & Chronicle</h1>
+  <p>Begin your story by entering your email below. We'll use it to give you access later if you want to return.</p>
+
+  <form action="https://formspree.io/f/xeokevze" method="POST">
+    <input type="email" name="email" id="email" placeholder="your@email.com" required />
+    <input type="hidden" name="source" value="Echo & Chronicle Launch" />
+    <br>
+    <button type="submit">Continue</button>
+  </form>
 </body>
 </html>
