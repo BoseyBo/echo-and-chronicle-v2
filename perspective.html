@@ -3,74 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perspective Lens – Echo & Chronicle</title>
+  <title>Perspective Shift | Echo & Chronicle</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #111;
       color: #fff;
+      font-family: Arial, sans-serif;
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
     h2 {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 20px;
     }
-    button {
-      padding: 12px 24px;
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+    select {
+      padding: 10px;
       font-size: 16px;
-      background-color: #fff;
-      color: #000;
+      margin-bottom: 20px;
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #4CAF50;
       border: none;
-      border-radius: 5px;
-      margin: 10px;
+      padding: 12px 24px;
+      color: white;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 6px;
     }
     button:hover {
-      background-color: #ddd;
-    }
-    pre {
-      margin-top: 30px;
-      background-color: #222;
-      padding: 20px;
-      text-align: left;
-      white-space: pre-wrap;
-      border-radius: 6px;
-      font-family: monospace;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      background-color: #3e8e41;
     }
   </style>
 </head>
 <body>
+  <h2>Try seeing your story through someone else's eyes</h2>
+  <p>Pick a perspective that matters. Imagine what they’d feel, say, or want for you.</p>
 
-  <h2>Choose Your Lens</h2>
-  <button onclick="sendPrompt('others')">How someone who loves me might tell it</button>
-  <button onclick="sendPrompt('insight')">What might I be missing?</button>
+  <select>
+    <option disabled selected>Select a perspective</option>
+    <option>Your child</option>
+    <option>A trusted friend</option>
+    <option>Your younger self</option>
+    <option>Your future self</option>
+    <option>A therapist</option>
+    <option>A stranger hearing it fresh</option>
+  </select>
 
-  <pre id="reflection">AI insight will appear here...</pre>
-
-  <br>
-  <button onclick="window.location.href='dalle.html'">Next: Visual Transformation</button>
-
-  <script>
-    async function sendPrompt(type) {
-      const story = sessionStorage.getItem("userStory") || "This is a placeholder story.";
-      let prompt;
-      if (type === "others") {
-        prompt = "How would someone who loves me describe this story with kindness, support, and perspective?";
-      } else {
-        prompt = "What might I be missing in this story that someone with insight would point out?";
-      }
-
-      // Fake AI reflection (for now — replace with API later)
-      const mockResponse = (type === "others")
-        ? "They might say: You're stronger than you realize. Even in pain, you’re still trying to understand."
-        : "You might be missing: The fact that you showed courage even when you felt like quitting.";
-
-      document.getElementById("reflection").innerText = mockResponse;
-    }
-  </script>
+  <br /><br />
+  <button onclick="alert('This will eventually launch reflection view or summary. For now, you did it!')">Finish</button>
 </body>
 </html>
