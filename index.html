@@ -1,37 +1,87 @@
-<form id="emailForm">
-  <label for="email">Optional: Get updates or access your story later</label>
-  <input type="email" name="email" id="email" placeholder="your@email.com" required />
-  <button type="submit">Continue</button>
-</form>
-
-<script>
-  document.getElementById('emailForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Stop normal form behavior
-
-    const email = document.getElementById('email').value.trim();
-
-    if (email.toLowerCase() === "debo@wildmind.com") {
-      window.location.href = "eq2-checkin.html"; // Secret redirect
-    } else {
-      // Fallback: Submit to Formspree as usual
-      const form = document.createElement('form');
-      form.action = "https://formspree.io/f/xeokevze";
-      form.method = "POST";
-
-      const inputEmail = document.createElement('input');
-      inputEmail.type = "hidden";
-      inputEmail.name = "email";
-      inputEmail.value = email;
-
-      const inputRedirect = document.createElement('input');
-      inputRedirect.type = "hidden";
-      inputRedirect.name = "_redirect";
-      inputRedirect.value = "https://echoandchronicle.com/eq2-checkin.html";
-
-      form.appendChild(inputEmail);
-      form.appendChild(inputRedirect);
-      document.body.appendChild(form);
-      form.submit();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo & Chronicle | Start Your Story</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 100px 20px;
     }
-  });
-</script>
+
+    label {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #555;
+      width: 280px;
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <form id="emailForm">
+    <label for="email">Optional: Get updates or access your story later</label>
+    <input type="email" name="email" id="email" placeholder="your@email.com" required />
+    <br />
+    <button type="submit">Continue</button>
+  </form>
+
+  <script>
+    document.getElementById('emailForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // Stop normal form behavior
+
+      const email = document.getElementById('email').value.trim();
+
+      if (email.toLowerCase() === "debo@wildmind.com") {
+        window.location.href = "eq2-checkin.html"; // Secret redirect
+      } else {
+        // Fallback: Submit to Formspree as usual
+        const form = document.createElement('form');
+        form.action = "https://formspree.io/f/xeokevze";
+        form.method = "POST";
+
+        const inputEmail = document.createElement('input');
+        inputEmail.type = "hidden";
+        inputEmail.name = "email";
+        inputEmail.value = email;
+
+        const inputRedirect = document.createElement('input');
+        inputRedirect.type = "hidden";
+        inputRedirect.name = "_redirect";
+        inputRedirect.value = "https://echoandchronicle.com/eq2-checkin.html";
+
+        form.appendChild(inputEmail);
+        form.appendChild(inputRedirect);
+        document.body.appendChild(form);
+        form.submit();
+      }
+    });
+  </script>
+</body>
+</html>
