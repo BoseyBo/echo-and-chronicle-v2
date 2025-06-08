@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lens Select | Echo & Chronicle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Emotions | Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
@@ -12,39 +12,51 @@
       text-align: center;
       padding: 40px 20px;
     }
+
     h2 {
       font-size: 28px;
       margin-bottom: 20px;
     }
-    .checkbox-group {
-      text-align: left;
-      max-width: 400px;
-      margin: 0 auto 30px;
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #ccc;
     }
-    .checkbox-group label {
+
+    label {
       display: block;
-      margin: 10px 0;
+      margin: 12px auto;
       font-size: 18px;
     }
-    input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      margin-top: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #333;
-      background-color: #222;
-      color: #fff;
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
     }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      margin-top: 20px;
+      border-radius: 6px;
+      border: none;
+      background-color: #333;
+      color: #fff;
+      font-size: 16px;
+    }
+
     button {
+      margin-top: 40px;
+      padding: 14px 30px;
+      font-size: 18px;
       background-color: #4CAF50;
       border: none;
-      padding: 12px 24px;
       color: white;
-      font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 6px;
     }
+
     button:hover {
       background-color: #3e8e41;
     }
@@ -52,17 +64,20 @@
 </head>
 <body>
   <h2>Select the emotions and lenses that match your story</h2>
+  <p>You can pick more than one. These help guide your next reflection step.</p>
 
-  <div class="checkbox-group">
-    <label><input type="checkbox" name="lens" value="resilience" /> Resilience</label>
-    <label><input type="checkbox" name="lens" value="grief" /> Grief</label>
-    <label><input type="checkbox" name="lens" value="identity" /> Identity</label>
-    <label><input type="checkbox" name="lens" value="betrayal" /> Betrayal</label>
-    <label><input type="checkbox" name="lens" value="forgiveness" /> Forgiveness</label>
-    <label><input type="checkbox" name="lens" value="legacy" /> Legacy</label>
-    <input type="text" placeholder="Add your own tag" />
-  </div>
+  <form>
+    <label><input type="checkbox" name="emotion" value="resilience" />Resilience</label>
+    <label><input type="checkbox" name="emotion" value="grief" />Grief</label>
+    <label><input type="checkbox" name="emotion" value="identity" />Identity</label>
+    <label><input type="checkbox" name="emotion" value="betrayal" />Betrayal</label>
+    <label><input type="checkbox" name="emotion" value="forgiveness" />Forgiveness</label>
+    <label><input type="checkbox" name="emotion" value="legacy" />Legacy</label>
 
-  <button onclick="location.href='perspective.html'">Continue</button>
+    <input type="text" placeholder="Add your own tag (optional)" />
+
+    <br><br>
+    <button onclick="location.href='perspective.html'">Next: Perspective</button>
+  </form>
 </body>
 </html>
