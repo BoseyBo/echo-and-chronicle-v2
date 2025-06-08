@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perspective Shift | Echo & Chronicle</title>
+  <title>Perspective | Echo & Chronicle</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       background-color: #111;
       color: #fff;
-      font-family: Arial, sans-serif;
       text-align: center;
       padding: 40px 20px;
     }
+
     h2 {
       font-size: 28px;
       margin-bottom: 20px;
     }
+
     p {
       font-size: 18px;
       margin-bottom: 30px;
       color: #ccc;
     }
+
     select {
       padding: 10px;
       font-size: 16px;
@@ -30,6 +33,7 @@
       border: 1px solid #444;
       border-radius: 6px;
     }
+
     button {
       background-color: #4CAF50;
       border: none;
@@ -39,26 +43,52 @@
       cursor: pointer;
       border-radius: 6px;
     }
+
     button:hover {
       background-color: #3e8e41;
+    }
+
+    .ai-preview {
+      background-color: #1e1e1e;
+      border-left: 5px solid #5cb85c;
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 600px;
+      color: #ccc;
+      font-style: italic;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .ai-preview blockquote {
+      margin: 20px 0;
+      font-style: normal;
+      font-size: 18px;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <h2>Try seeing your story through someone else's eyes</h2>
-  <p>Pick a perspective that matters. Imagine what they’d feel, say, or want for you.</p>
+  <p>Select a perspective that matters. Imagine what they’d feel, say, or want for you.</p>
 
   <select>
-    <option disabled selected>Select a perspective</option>
-    <option>Your child</option>
-    <option>A trusted friend</option>
-    <option>Your younger self</option>
-    <option>Your future self</option>
-    <option>A therapist</option>
-    <option>A stranger hearing it fresh</option>
+    <option disabled selected value="">Choose a perspective...</option>
+    <option>Future You</option>
+    <option>Childhood You</option>
+    <option>Someone You Love</option>
+    <option>A Stranger</option>
+    <option>A Mentor</option>
+    <option>Someone You Lost</option>
   </select>
+  <br><br>
 
-  <br /><br />
-  <button onclick="alert('This will eventually launch reflection view or summary. For now, you did it!')">Finish</button>
+  <button onclick="alert('This will eventually launch reflection view or summary export')">Reflect</button>
+
+  <div class="ai-preview">
+    <p>This is what someone might say after reading your story:</p>
+    <blockquote>
+      "I wonder what part of you still holds onto this moment?"
+    </blockquote>
+  </div>
 </body>
 </html>
