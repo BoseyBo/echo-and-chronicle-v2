@@ -12,7 +12,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 20px;
       text-align: center;
     }
@@ -21,17 +20,26 @@
       margin-bottom: 10px;
     }
 
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+
     .slider-group {
-      margin: 20px 0;
+      margin: 10px 0;
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
       text-align: left;
     }
 
     label {
       display: block;
       margin-bottom: 5px;
-      color: #ccc;
+      color: #aaa;
     }
 
     input[type="range"] {
@@ -61,16 +69,16 @@
       background-color: #3e8e41;
     }
 
+    .video-placeholder {
+      margin-top: 40px;
+      width: 100%;
+      max-width: 600px;
+    }
+
     .disclaimer {
       margin-top: 50px;
       font-size: 0.9em;
       color: #888;
-      max-width: 600px;
-    }
-
-    .video-placeholder {
-      margin-top: 40px;
-      width: 100%;
       max-width: 600px;
     }
   </style>
@@ -78,19 +86,51 @@
 <body>
   <h1>EQE2: Emotional Check-In</h1>
   <form id="eqe2Form" action="https://formspree.io/f/xeokalya" method="POST">
+
+    <h2>Emotional Intelligence</h2>
     <div class="slider-group">
-      <label for="selfConfidence">Self-Confidence</label>
-      <input type="range" id="selfConfidence" name="selfConfidence" min="1" max="5" value="3">
+      <label>Self-Confidence</label>
+      <input type="range" name="self_confidence" min="1" max="5" value="3">
+    </div>
+    <div class="slider-group">
+      <label>Self-Awareness</label>
+      <input type="range" name="self_awareness" min="1" max="5" value="3">
+    </div>
+    <div class="slider-group">
+      <label>Situational Readiness</label>
+      <input type="range" name="situational_readiness" min="1" max="5" value="3">
     </div>
 
+    <h2>Growth Mindset</h2>
     <div class="slider-group">
-      <label for="selfAwareness">Self-Awareness</label>
-      <input type="range" id="selfAwareness" name="selfAwareness" min="1" max="5" value="3">
+      <label>Challenges</label>
+      <input type="range" name="challenges" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Obstacles</label>
+      <input type="range" name="obstacles" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Effort</label>
+      <input type="range" name="effort" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Feedback</label>
+      <input type="range" name="feedback" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Setbacks</label>
+      <input type="range" name="setbacks" min="1" max="5">
     </div>
 
+    <h2>Energy + Accessibility</h2>
     <div class="slider-group">
-      <label for="situationalReadiness">Situational Readiness</label>
-      <input type="range" id="situationalReadiness" name="situationalReadiness" min="1" max="5" value="3">
+      <label>Energy</label>
+      <input type="range" name="energy" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Accessibility</label>
+      <input type="range" name="accessibility" min="1" max="5">
     </div>
 
     <div class="button-group">
@@ -101,8 +141,7 @@
   </form>
 
   <div class="video-placeholder">
-    <!-- Insert YouTube or Vimeo iframe later -->
-    <p style="color: #999;">[Video explainer for WildMind will appear here]</p>
+    <p style="color: #999;">[WildMind explainer video will go here]</p>
   </div>
 
   <div class="disclaimer">
@@ -111,7 +150,7 @@
 
   <script>
     function skipToNext() {
-      window.location.href = 'narrative.html'; // Update if your next step page has a different name
+      window.location.href = 'narrative.html';
     }
   </script>
 </body>
