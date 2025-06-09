@@ -1,96 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Echo & Chronicle | Check-In</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EQE2 Check-In | Echo & Chronicle</title>
   <style>
     body {
-      margin: 0;
       background-color: #111;
       color: #fff;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
       padding: 20px;
     }
 
     h1 {
-      font-size: 2em;
       margin-bottom: 10px;
     }
 
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .slider-group {
+      margin: 10px 0;
+      width: 100%;
+      max-width: 500px;
+      text-align: left;
+    }
+
     label {
-      display: block;
       font-size: 1em;
-      margin: 20px 0 5px;
-      color: #ccc;
+      color: #aaa;
     }
 
-    input[type="range"],
-    textarea {
-      width: 250px;
-      margin-bottom: 15px;
-    }
-
-    textarea {
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      resize: none;
-      height: 80px;
-      font-family: inherit;
+    input[type="range"] {
+      width: 100%;
+      margin-top: 5px;
     }
 
     button {
       background-color: #4CAF50;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 15px 30px;
       font-size: 1em;
       cursor: pointer;
       border-radius: 8px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     button:hover {
       background-color: #3e8e41;
     }
-
-    .disclaimer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.8em;
-      color: #888;
-      max-width: 80%;
-    }
   </style>
 </head>
 <body>
+  <h1>EQE2 Check-In</h1>
+  <p>Adjust each dial to reflect your current state.</p>
 
-  <h1>Check-In</h1>
+  <form id="eqe2Form" action="https://formspree.io/f/xwpblrab" method="POST">
+    <h2>Emotional Intelligence</h2>
+    <div class="slider-group">
+      <label>Self-Awareness</label>
+      <input type="range" name="self_awareness" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Self-Regulation</label>
+      <input type="range" name="self_regulation" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Motivation</label>
+      <input type="range" name="motivation" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Empathy</label>
+      <input type="range" name="empathy" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Social Skills</label>
+      <input type="range" name="social_skills" min="1" max="5">
+    </div>
 
-  <form action="https://formspree.io/f/xeokalya" method="POST">
-    <label for="feeling">How are you feeling right now?</label>
-    <input type="range" id="feeling" name="feeling" min="1" max="5" />
+    <h2>Growth Mindset</h2>
+    <div class="slider-group">
+      <label>Challenges</label>
+      <input type="range" name="challenges" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Obstacles</label>
+      <input type="range" name="obstacles" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Effort</label>
+      <input type="range" name="effort" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Feedback</label>
+      <input type="range" name="feedback" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Setbacks</label>
+      <input type="range" name="setbacks" min="1" max="5">
+    </div>
 
-    <label for="depth">How ready are you to go deeper?</label>
-    <input type="range" id="depth" name="depth" min="1" max="5" />
+    <h2>Energy + Accessibility</h2>
+    <div class="slider-group">
+      <label>Energy</label>
+      <input type="range" name="energy" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Accessibility</label>
+      <input type="range" name="accessibility" min="1" max="5">
+    </div>
 
-    <label for="unsaid">What’s something you haven’t said out loud yet?</label>
-    <textarea id="unsaid" name="unsaid" placeholder="(optional)"></textarea>
-
-    <button type="submit">Lock In</button>
+    <button type="submit">Submit Check-In</button>
   </form>
-
-  <div class="disclaimer">
-    This is a reflective space. You may feel things.<br>
-    No one sees this but you — until you decide otherwise.
-  </div>
-
 </body>
 </html>
