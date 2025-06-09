@@ -109,5 +109,31 @@
     This is a reflective space. You may feel things.  
     Imagine seeing yourself from new angles — like a mirrored studio that reveals more than you expected.
   </div>
+  <form id="demoForm" action="https://formspree.io/f/yourFormID" method="POST" style="display: none;">
+    <input type="hidden" name="zip" id="zipHidden" />
+    <input type="hidden" name="age" id="ageHidden" />
+    <input type="hidden" name="gender" id="genderHidden" />
+    <input type="hidden" name="comfort" id="comfortHidden" />
+  </form>
+  
+  <script>
+    function sendAndGo() {
+      const zip = document.querySelector('input[placeholder="Zip Code (Optional)"]').value;
+      const age = document.querySelectorAll('select')[0].value;
+      const gender = document.querySelectorAll('select')[1].value;
+      const comfort = document.querySelector('input[type="range"]').value;
+  
+      document.getElementById("zipHidden").value = zip;
+      document.getElementById("ageHidden").value = age;
+      document.getElementById("genderHidden").value = gender;
+      document.getElementById("comfortHidden").value = comfort;
+  
+      document.getElementById("demoForm").submit();
+  
+      setTimeout(() => {
+        location.href = 'main.html';
+      }, 300);
+    }
+  </script>
 </body>
 </html>
