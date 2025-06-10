@@ -63,8 +63,22 @@
 
   <textarea id="narrativeInput">I woke up before the sun rose and sat in silence. For a few minutes, the chaos of my life paused. No emails. No pressure. Just breath. In that moment, I remembered who I was—outside the roles and expectations.</textarea>
 
-  <button onclick="alert('⚠️ This is a demo. Submission is disabled in prototype mode.')">Submit (Demo Mode)</button>
+<button type="button" onclick="handleDemoSubmit()">Submit (Demo Mode)</button>
 
+<script>
+  function handleDemoSubmit() {
+    alert("This is a demo. Submission is disabled in prototype mode.");
+    
+    const text = document.getElementById("narrativeInput").value;
+    const encodedPrompt = encodeURIComponent(text);
+    const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
+
+    // Slight delay to make the transition smoother
+    setTimeout(() => {
+      window.location.href = 'aisummary.html' + query;
+    }, 200);
+  }
+</script>
   <div class="disclaimer">
     This is a prototype demonstration. Your story is not being saved.<br/>
     <strong>Date:</strong> 2025-06-10
