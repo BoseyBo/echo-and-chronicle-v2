@@ -48,7 +48,7 @@
 <body>
   <h1>Your Words. Your Story.</h1>
   <p><em>Paste your raw audio transcript (preferred), or just type what’s on your mind.</em></p>
-  <form action="https://formspree.io/f/xeokalya" method="POST"><form action="https://formspree.io/f/xeokalya" method="POST" onsubmit="goToReflections(event)"></form>
+  <form action="https://formspree.io/f/xeokalya" method="POST" onsubmit="goToReflections(event)">
     <select onchange="loadPrompt(this.value)">
       <option value="">🪶 Need a prompt?</option>
       <option value="Tell me about a moment you felt alive.">Tell me about a moment you felt alive.</option>
@@ -67,19 +67,20 @@
       }, 300)">Next</button>
     </div>
 
-  <script>
-    function loadPrompt(text) {
-      document.getElementById("narrativeInput").value = text;
-    }
-  </script>
-  <script>
-    function goToReflections(event) {
-      const text = document.getElementById('narrativeInput').value;
-      const encoded = encodeURIComponent(text.slice(0, 100)); // Keep short for now
-      setTimeout(() => {
-        window.location.href = `reflections.html?summary=${encoded}`;
-      }, 500);
-    }
-  </script>
-</body>
-</html>
+    <script>
+      function loadPrompt(text) {
+        document.getElementById("narrativeInput").value = text;
+      }
+    </script>
+  
+    <script>
+      function goToReflections(event) {
+        event.preventDefault(); // prevent form submission
+        const text = document.getElementById('narrativeInput').value;
+        const encodedPrompt = encodeURIComponent(text.slice(0, 100)); // Limit for safety
+        const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
+        window.location.href = `reflections.html${query}`;
+      }
+    </script>
+  </body>
+  </html>
