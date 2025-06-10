@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lens Reflection | Echo & Chronicle</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .prototype-note {
+      font-size: 0.9em;
+      color: #f39c12;
+      margin-top: 10px;
+    }
+
+    .summary {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      display: inline-block;
+      max-width: 600px;
+      width: 90%;
+      text-align: left;
+    }
+
+    .summary p {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    .disclaimer {
+      font-size: 0.8em;
+      color: #888;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Your Lens Reflection</h2>
+  <div class="prototype-note">Prototype only. Reflections are sample outputs based on prompts. Live AI integration coming soon.</div>
+
+  <div class="summary">
+    <p><strong>Selected Prompt:</strong> <span id="prompt"></span></p>
+    <p><strong>Emotion Tag:</strong> EQE2</p>
+    <p><strong>AI Reflection:</strong></p>
+    <p id="reflectionText"></p>
+  </div>
+
+  <button onclick="next()">Next</button>
+
+  <div class="disclaimer">
+    This is a working prototype. Outputs are simulated and do not reflect actual AI results yet.
+  </div>
+
+  <script>
+    const prompt = new URLSearchParams(window.location.search).get('aiPrompt') || 'Tell me about a moment you felt alive.';
+    const reflectionSamples = {
+      "Tell me about a moment you felt alive.": "You recalled a surge of clarity and purpose — a moment that reminded you you’re still in the fight, still becoming.",
+      "What’s a truth you’ve never said out loud?": "Your honesty carries weight. Even when unspoken, your truths shape the way you protect yourself and others.",
+      "Describe the last time you felt at peace.": "You described stillness not as absence, but as presence — a rare and precious pause amid a life lived in motion."
+    };
+
+    document.getElementById("prompt").textContent = decodeURIComponent(prompt);
+    document.getElementById("reflectionText").textContent =
+      reflectionSamples[decodeURIComponent(prompt)] || "Your story matters. This reflection helps you see it from a new angle.";
+
+    function next() {
+      window.location.href = 'imagegen.html';
+    }
+  </script>
+</body>
+</html>
