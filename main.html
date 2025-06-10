@@ -85,8 +85,7 @@
 </head>
 <body>
   <h1>EQE2: Emotional Check-In</h1>
-  <form id="eqe2Form" action="https://formspree.io/f/xeokalya" method="POST">
-
+  <form id="eqe2Form" action="https://formspree.io/f/xeokalya" method="POST" onsubmit="redirectAfterSubmit(event)">
     <h2>Emotional Intelligence</h2>
     <div class="slider-group">
       <label>Self-Confidence</label>
@@ -163,6 +162,13 @@
       document.querySelector('input[name="energy"]').value = 4;
       document.querySelector('input[name="accessibility"]').value = 5;
     });
+  </script>
+  <script>
+    function redirectAfterSubmit(event) {
+      setTimeout(() => {
+        window.location.href = 'narrative.html';
+      }, 500); // Slightly longer delay to allow form to submit
+    }
   </script>
 </body>
 </html>
