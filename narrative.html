@@ -59,12 +59,13 @@
     <textarea name="narrative" id="narrativeInput" rows="12" placeholder="Paste transcript or write your story here..."></textarea>
 
     <div>
-      <button type="submit" onclick="setTimeout(() => { window.location.href='reflections.html?selectedEmotions=joy&customTag=truth&aiPrompt=sunset%20over%20the%20river'; }, 300)">Next</button>    </div>
-  </form>
-
-  <div class="disclaimer">
-    Your words stay yours. We use this to help you visualize, reflect, and grow.
-  </div>
+      <button type="submit" onclick="setTimeout(() => {
+        const prompt = document.getElementById('narrativeInput').value;
+        const encodedPrompt = encodeURIComponent(prompt);
+        const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
+        window.location.href = 'reflections.html' + query;
+      }, 300)">Next</button>
+    </div>
 
   <script>
     function loadPrompt(text) {
