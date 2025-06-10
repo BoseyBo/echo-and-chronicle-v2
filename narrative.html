@@ -53,38 +53,31 @@
   <h1>Your Words. Your Story.</h1>
   <p><em>Select a prompt to explore your inner lens. This is a prototype demo.</em></p>
 
-  <select onchange="loadPrompt(this.value)">
+  <select aria-label="Choose a reflection prompt" onchange="loadPrompt(this.value)">
     <option value="">🪶 Choose a prompt</option>
     <option value="alive">Tell me about a moment you felt alive.</option>
     <option value="truth">What’s a truth you’ve never said out loud?</option>
     <option value="peace">Describe the last time you felt at peace.</option>
-    <option value="custom">What's on your mind today?</option>
+    <option value="custom" selected>What's on your mind today?</option>
   </select>
 
-  <textarea id="narrativeInput">I woke up before the sun rose and sat in silence. For a few minutes, the chaos of my life paused. No emails. No pressure. Just breath. In that moment, I remembered who I was—outside the roles and expectations.</textarea>
+  <textarea id="narrativeInput" aria-label="Your story input">
+Right now, my thoughts are scrambled. Part fear. Part drive. I want to show up honestly, even if I don’t fully understand why yet.
+  </textarea>
 
-<button type="button" onclick="handleDemoSubmit()">Submit (Demo Mode)</button>
-
-<script>
-  function handleDemoSubmit() {
-    alert("This is a demo. Submission is disabled in prototype mode.");
-    
-    const text = document.getElementById("narrativeInput").value;
-    const encodedPrompt = encodeURIComponent(text);
-    const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
-
-    // Slight delay to make the transition smoother
-    setTimeout(() => {
-      window.location.href = 'aisummary.html' + query;
-    }, 200);
-  }
-</script>
-  <div class="disclaimer">
-    This is a prototype demonstration. Your story is not being saved.<br/>
-    <strong>Date:</strong> 2025-06-10
-  </div>
+  <button type="button" onclick="handleDemoSubmit()">Preview Lens (Demo Mode)</button>
 
   <script>
+    function handleDemoSubmit() {
+      alert("This is a demo. Submission is disabled in prototype mode.");
+      const text = document.getElementById("narrativeInput").value;
+      const encodedPrompt = encodeURIComponent(text);
+      const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
+      setTimeout(() => {
+        window.location.href = 'aisummary.html' + query;
+      }, 200);
+    }
+
     function loadPrompt(key) {
       const samples = {
         alive: "I felt most alive the day I said yes to something that scared me. Not reckless fear, but the kind that meant I might grow. I was honest. I shook. And I lived.",
@@ -94,6 +87,16 @@
       };
       document.getElementById("narrativeInput").value = samples[key] || '';
     }
+
+    // Auto-fill default sample on load
+    document.addEventListener("DOMContentLoaded", () => {
+      loadPrompt("custom");
+    });
   </script>
+
+  <div class="disclaimer">
+    This is a prototype demonstration. Your story is not being saved.<br/>
+    <strong>Date:</strong> 2025-06-10
+  </div>
 </body>
 </html>
