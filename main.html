@@ -150,7 +150,7 @@
     }
   
     // Auto-fill EQE2 sliders for demo display
-    window.onload = () => {
+    document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('input[name="self_awareness"]').value = 4;
       document.querySelector('input[name="self_regulation"]').value = 3;
       document.querySelector('input[name="motivation"]').value = 4;
@@ -163,7 +163,7 @@
       document.querySelector('input[name="setbacks"]').value = 3;
       document.querySelector('input[name="energy"]').value = 4;
       document.querySelector('input[name="accessibility"]').value = 5;
-    };
+    });
   </script>
 </body>
 </html>
