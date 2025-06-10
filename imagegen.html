@@ -46,8 +46,17 @@
   <input type="text" id="aiInput" placeholder="Describe your story..." />
 
   <div>
-    <button onclick="generate()">Generate</button>
-    <button onclick="next()">Next</button>
+    <script>
+      function goToEQE2Post() {
+        const prompt = document.getElementById('aiInput').value || "No prompt given";
+        const query = new URLSearchParams(window.location.search);
+        const emotions = query.get('selectedEmotions') || 'N/A';
+        const tag = query.get('customTag') || 'N/A';
+    
+        const finalQuery = `?selectedEmotions=${encodeURIComponent(emotions)}&customTag=${encodeURIComponent(tag)}&aiPrompt=${encodeURIComponent(prompt)}`;
+        window.location.href = 'eqe2-post.html' + finalQuery;
+      }
+    </script>
   </div>
 
   <script>
