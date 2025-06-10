@@ -3,76 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Export Options | Echo & Chronicle</title>
+  <title>Export or Share | Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    h2 {
+      margin-bottom: 20px;
     }
 
-    p {
-      font-size: 18px;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    a.button {
-      display: inline-block;
-      padding: 12px 28px;
+    button {
       background-color: #4CAF50;
       color: white;
       border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      margin: 10px;
       border-radius: 6px;
-      text-decoration: none;
-      font-size: 16px;
       cursor: pointer;
     }
 
-    a.button:hover {
+    button:hover {
       background-color: #3e8e41;
     }
 
-    .footer-link {
-      margin-top: 50px;
-      font-size: 14px;
+    .disclaimer {
+      margin-top: 30px;
+      font-size: 0.9em;
       color: #888;
-    }
-
-    .footer-link a {
-      color: #888;
-      text-decoration: underline;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
+  <h2>Export or Share</h2>
+  <p>You can download your session or securely share it with a coach or therapist.</p>
 
-  <h1>Your Story's Ready</h1>
-  <p>Choose what to do next with your reflection:</p>
+  <button onclick="downloadCSV()">⬇️ Download CSV</button>
+  <button onclick="sendToTherapist()">📤 Send to Therapist</button>
 
-  <div class="button-group">
-    <a href="#" class="button">Download a copy</a>
-    <a href="#" class="button">Email this to myself</a>
-    <a href="#" class="button">Add to private Journal Archive</a>
+  <div class="disclaimer">
+    Your data stays yours. This is just a starting point. Our backend is evolving to support full privacy and encrypted sharing.
   </div>
 
-  <div class="footer-link">
-    <p><a href="index.html">← Back to Start</a></p>
-  </div>
+  <script>
+    function downloadCSV() {
+      const csvContent = "data:text/csv;charset=utf-8,"
+        + ["Field,Value", "Session Complete,Yes", "Next,Therapist"].join("\n");
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "echo_session.csv");
+      document.body.appendChild(link);
+      link.click();
+    }
 
+    function sendToTherapist() {
+      alert("📤 Coming soon: secure therapist handoff via webhook/email.");
+    }
+  </script>
 </body>
 </html>
