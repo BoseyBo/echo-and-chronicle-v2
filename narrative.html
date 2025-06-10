@@ -48,7 +48,7 @@
 <body>
   <h1>Your Words. Your Story.</h1>
   <p><em>Paste your raw audio transcript (preferred), or just type what’s on your mind.</em></p>
-  <form action="https://formspree.io/f/xeokalya" method="POST">
+  <form action="https://formspree.io/f/xeokalya" method="POST"><form action="https://formspree.io/f/xeokalya" method="POST" onsubmit="goToReflections(event)"></form>
     <select onchange="loadPrompt(this.value)">
       <option value="">🪶 Need a prompt?</option>
       <option value="Tell me about a moment you felt alive.">Tell me about a moment you felt alive.</option>
@@ -70,6 +70,15 @@
   <script>
     function loadPrompt(text) {
       document.getElementById("narrativeInput").value = text;
+    }
+  </script>
+  <script>
+    function goToReflections(event) {
+      const text = document.getElementById('narrativeInput').value;
+      const encoded = encodeURIComponent(text.slice(0, 100)); // Keep short for now
+      setTimeout(() => {
+        window.location.href = `reflections.html?summary=${encoded}`;
+      }, 500);
     }
   </script>
 </body>
