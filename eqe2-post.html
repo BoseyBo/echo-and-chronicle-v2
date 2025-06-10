@@ -3,54 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Final Check-In | Echo & Chronicle</title>
+  <title>EQE2 Post Check-In | Echo & Chronicle</title>
   <style>
     body {
       background-color: #111;
       color: #fff;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 20px;
+      text-align: center;
     }
 
     h1 {
       margin-bottom: 10px;
     }
 
-    p {
-      font-size: 1em;
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 1.2em;
       color: #ccc;
-      margin-bottom: 30px;
     }
 
     .slider-group {
       margin: 10px 0;
-      width: 100%;
       max-width: 500px;
       text-align: left;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     label {
-      font-size: 1em;
+      display: block;
       color: #aaa;
+      margin-bottom: 4px;
     }
 
     input[type="range"] {
       width: 100%;
-      margin-top: 5px;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      height: 80px;
+      margin-top: 20px;
+      border-radius: 6px;
+      border: none;
+      padding: 10px;
+      font-size: 1em;
     }
 
     button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 8px;
       margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
     }
 
     button:hover {
@@ -62,23 +73,54 @@
       font-size: 0.9em;
       color: #888;
       max-width: 600px;
-      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
-  <h1>Final Check-In</h1>
-  <p>One last scan before you go. How are you now?</p>
+  <h1>EQE2 Post Check-In</h1>
+  <p>Compare your state after reflection. This helps track internal shifts.</p>
 
   <form action="https://formspree.io/f/xeokalya" method="POST">
+
+    <h2>Emotional Intelligence</h2>
+    <div class="slider-group">
+      <label>Self-Confidence</label>
+      <input type="range" name="post_self_confidence" min="1" max="5">
+    </div>
     <div class="slider-group">
       <label>Self-Awareness</label>
       <input type="range" name="post_self_awareness" min="1" max="5">
     </div>
     <div class="slider-group">
-      <label>Self-Regulation</label>
-      <input type="range" name="post_self_regulation" min="1" max="5">
+      <label>Situational Readiness</label>
+      <input type="range" name="post_situational_readiness" min="1" max="5">
     </div>
+
+    <h2>Growth Mindset</h2>
+    <div class="slider-group">
+      <label>Challenges</label>
+      <input type="range" name="post_challenges" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Obstacles</label>
+      <input type="range" name="post_obstacles" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Effort</label>
+      <input type="range" name="post_effort" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Feedback</label>
+      <input type="range" name="post_feedback" min="1" max="5">
+    </div>
+    <div class="slider-group">
+      <label>Setbacks</label>
+      <input type="range" name="post_setbacks" min="1" max="5">
+    </div>
+
+    <h2>Energy + Accessibility</h2>
     <div class="slider-group">
       <label>Energy</label>
       <input type="range" name="post_energy" min="1" max="5">
@@ -88,12 +130,13 @@
       <input type="range" name="post_accessibility" min="1" max="5">
     </div>
 
-    <button type="submit" onclick="setTimeout(() => { window.location.href='about.html'; }, 300)">Submit + Finish</button>
+    <textarea name="post_comments" placeholder="Anything else you noticed after reflecting?"></textarea>
+
+    <button type="submit">Submit</button>
   </form>
 
   <div class="disclaimer">
-    This second check-in helps us see how your state may have shifted.<br>
-    It’s not about right answers — it’s about rhythm, progress, and signal clarity.
+    This check-in completes your reflection. Track your shift. Your story and signal are yours.
   </div>
 </body>
 </html>
