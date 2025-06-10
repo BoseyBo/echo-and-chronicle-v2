@@ -47,8 +47,7 @@
 </head>
 <body>
   <h1>Your Words. Your Story.</h1>
-  <p>You can paste a raw transcript (preferred) or type freely below. Prompts are available if helpful.</p>
-
+  <p><em>Paste your raw audio transcript (preferred), or just type what’s on your mind.</em></p>
   <form action="https://formspree.io/f/xeokalya" method="POST">
     <select onchange="loadPrompt(this.value)">
       <option value="">🪶 Need a prompt?</option>
@@ -60,8 +59,7 @@
     <textarea name="narrative" id="narrativeInput" rows="12" placeholder="Paste transcript or write your story here..."></textarea>
 
     <div>
-      <button type="submit" onclick="setTimeout(() => { window.location.href='imagegen.html'; }, 300)">Submit & Reflect</button>
-    </div>
+      <button type="submit" onclick="setTimeout(() => { window.location.href='reflections.html?selectedEmotions=joy&customTag=truth&aiPrompt=sunset%20over%20the%20river'; }, 300)">Next</button>    </div>
   </form>
 
   <div class="disclaimer">
