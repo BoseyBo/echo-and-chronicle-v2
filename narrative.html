@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Story | Echo & Chronicle</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 200px;
+      padding: 15px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      resize: vertical;
+    }
+
+    select {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #222;
+      color: #fff;
+      border: none;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    .disclaimer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #888;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Words. Your Story.</h1>
+  <p>Write whatever comes up. There’s no wrong answer here.</p>
+
+  <form action="https://formspree.io/f/xeokalya" method="POST">
+    <select onchange="loadPrompt(this.value)">
+      <option value="">Need a prompt?</option>
+      <option value="Tell me about a moment you felt alive.">Tell me about a moment you felt alive.</option>
+      <option value="What’s a truth you’ve never said out loud?">What’s a truth you’ve never said out loud?</option>
+      <option value="Describe the last time you felt at peace.">Describe the last time you felt at peace.</option>
+    </select>
+
+    <textarea name="narrative" id="narrativeInput" placeholder="Start typing here..."></textarea>
+
+    <div>
+      <button type="submit" onclick="setTimeout(() => { window.location.href='imagegen.html'; }, 300)">Submit & Generate Image</button>
+    </div>
+  </form>
+
+  <div class="disclaimer">
+    Your words stay yours. We use this to help you visualize, reflect, and grow — not to judge. You can go as deep or as light as you’d like.
+  </div>
+
+  <script>
+    function loadPrompt(text) {
+      document.getElementById("narrativeInput").value = text;
+    }
+  </script>
+</body>
+</html>
