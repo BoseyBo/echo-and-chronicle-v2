@@ -53,6 +53,8 @@
 <body>
   <h2>Your Lens Reflection</h2>
 
+  <p>This reflection is generated from your writing and choices. It’s yours to keep, discuss, or ignore.</p>
+  
   <div class="summary">
     <p><strong>Selected Emotions:</strong> <span id="emotions"></span></p>
     <p><strong>Custom Tag:</strong> <span id="tag"></span></p>
