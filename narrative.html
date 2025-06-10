@@ -26,6 +26,10 @@
       border: none;
     }
 
+    textarea {
+      height: 300px;
+    }
+
     button {
       background-color: #4CAF50;
       color: white;
@@ -38,7 +42,7 @@
     }
 
     .disclaimer {
-      margin-top: 50px;
+      margin-top: 30px;
       font-size: 0.9em;
       color: #888;
       max-width: 600px;
@@ -47,40 +51,35 @@
 </head>
 <body>
   <h1>Your Words. Your Story.</h1>
-  <p><em>Paste your raw audio transcript (preferred), or just type what’s on your mind.</em></p>
-  <form action="https://formspree.io/f/xeokalya" method="POST" onsubmit="goToReflections(event)">
-    <select onchange="loadPrompt(this.value)">
-      <option value="">🪶 Need a prompt?</option>
-      <option value="Tell me about a moment you felt alive.">Tell me about a moment you felt alive.</option>
-      <option value="What’s a truth you’ve never said out loud?">What’s a truth you’ve never said out loud?</option>
-      <option value="Describe the last time you felt at peace.">Describe the last time you felt at peace.</option>
-    </select>
+  <p><em>Select a prompt to explore your inner lens. This is a prototype demo.</em></p>
 
-    <textarea name="narrative" id="narrativeInput" rows="12" placeholder="Paste transcript or write your story here..."></textarea>
+  <select onchange="loadPrompt(this.value)">
+    <option value="">🪶 Choose a prompt</option>
+    <option value="alive">Tell me about a moment you felt alive.</option>
+    <option value="truth">What’s a truth you’ve never said out loud?</option>
+    <option value="peace">Describe the last time you felt at peace.</option>
+    <option value="custom">What's on your mind today?</option>
+  </select>
 
-    <div>
-      <button type="submit" onclick="setTimeout(() => {
-        const prompt = document.getElementById('narrativeInput').value;
-        const encodedPrompt = encodeURIComponent(prompt);
-        const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
-        window.location.href = 'reflections.html' + query;
-      }, 300)">Next</button>
-    </div>
+  <textarea id="narrativeInput">I woke up before the sun rose and sat in silence. For a few minutes, the chaos of my life paused. No emails. No pressure. Just breath. In that moment, I remembered who I was—outside the roles and expectations.</textarea>
 
-    <script>
-      function loadPrompt(text) {
-        document.getElementById("narrativeInput").value = text;
-      }
-    </script>
-  
-    <script>
-      function goToReflections(event) {
-        event.preventDefault(); // prevent form submission
-        const text = document.getElementById('narrativeInput').value;
-        const encodedPrompt = encodeURIComponent(text.slice(0, 100)); // Limit for safety
-        const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
-        window.location.href = `reflections.html${query}`;
-      }
-    </script>
-  </body>
-  </html>
+  <button onclick="alert('⚠️ This is a demo. Submission is disabled in prototype mode.')">Submit (Demo Mode)</button>
+
+  <div class="disclaimer">
+    This is a prototype demonstration. Your story is not being saved.<br/>
+    <strong>Date:</strong> 2025-06-10
+  </div>
+
+  <script>
+    function loadPrompt(key) {
+      const samples = {
+        alive: "I felt most alive the day I said yes to something that scared me. Not reckless fear, but the kind that meant I might grow. I was honest. I shook. And I lived.",
+        truth: "There’s a truth I’ve never said: I sometimes don’t believe I deserve peace. That I have to earn it. It’s exhausting. And maybe saying this is the first step toward letting go.",
+        peace: "Peace found me in the shower. Of all places. The sound of water muted the noise in my mind. I just stood there. Present. And that was enough.",
+        custom: "Right now, my thoughts are scrambled. Part fear. Part drive. I want to show up honestly, even if I don’t fully understand why yet."
+      };
+      document.getElementById("narrativeInput").value = samples[key] || '';
+    }
+  </script>
+</body>
+</html>
