@@ -47,7 +47,7 @@
 </head>
 <body>
   <h1>Your Words. Your Story.</h1>
-  <p>Write whatever comes up. There’s no wrong answer here.</p>
+  <p>You can paste a raw transcript (preferred) or type freely below. Prompts are available if helpful.</p>
 
   <form action="https://formspree.io/f/xeokalya" method="POST">
     <select onchange="loadPrompt(this.value)">
@@ -57,10 +57,10 @@
       <option value="Describe the last time you felt at peace.">Describe the last time you felt at peace.</option>
     </select>
 
-    <textarea name="narrative" id="narrativeInput" rows="10" placeholder="Start typing here..."></textarea>
+    <textarea name="narrative" id="narrativeInput" rows="12" placeholder="Paste transcript or write your story here..."></textarea>
 
     <div>
-      <button type="submit" onclick="setTimeout(() => { window.location.href='imagegen.html'; }, 300)">Next</button>
+      <button type="submit" onclick="setTimeout(() => { window.location.href='imagegen.html'; }, 300)">Submit & Reflect</button>
     </div>
   </form>
 
