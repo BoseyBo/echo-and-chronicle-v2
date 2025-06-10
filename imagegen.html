@@ -56,11 +56,14 @@
       alert("🧠 (Simulated) AI received: " + aiPrompt);
       // In future: Call OpenAI API + DALL·E here
     }
-
+  
     function next() {
-      const aiPrompt = encodeURIComponent(document.getElementById('aiInput').value);
-      const tag = encodeURIComponent("truth");
-      window.location.href = `reflections.html?selectedEmotions=Custom&customTag=${tag}&aiPrompt=${aiPrompt}`;
+      const prompt = document.getElementById("aiInput").value;
+      const customTag = "truth"; // update later if dynamic
+      const selectedEmotions = "Custom"; // update later if dynamic
+  
+      const query = `?aiPrompt=${encodeURIComponent(prompt)}&customTag=${encodeURIComponent(customTag)}&selectedEmotions=${encodeURIComponent(selectedEmotions)}`;
+      window.location.href = `reflections.html${query}`;
     }
   </script>
 </body>
