@@ -140,7 +140,6 @@
     </div>
   </form>
 
-  
   <div class="disclaimer">
     This EQE2 check-in helps us understand your current state — not to judge, but to reflect. You’re not a score, you're a signal.
   </div>
@@ -149,6 +148,22 @@
     function skipToNext() {
       window.location.href = 'narrative.html';
     }
+  
+    // Auto-fill EQE2 sliders for demo display
+    window.onload = () => {
+      document.querySelector('input[name="self_awareness"]').value = 4;
+      document.querySelector('input[name="self_regulation"]').value = 3;
+      document.querySelector('input[name="motivation"]').value = 4;
+      document.querySelector('input[name="empathy"]').value = 5;
+      document.querySelector('input[name="social_skills"]').value = 3;
+      document.querySelector('input[name="challenges"]').value = 5;
+      document.querySelector('input[name="obstacles"]').value = 3;
+      document.querySelector('input[name="effort"]').value = 4;
+      document.querySelector('input[name="feedback"]').value = 2;
+      document.querySelector('input[name="setbacks"]').value = 3;
+      document.querySelector('input[name="energy"]').value = 4;
+      document.querySelector('input[name="accessibility"]').value = 5;
+    };
   </script>
 </body>
 </html>
