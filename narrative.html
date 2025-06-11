@@ -1,102 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Words | Echo & Chronicle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echo & Chronicle - Tell Your Story</title>
   <style>
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
+      font-family: sans-serif;
+      background: #fafafa;
+      padding: 40px 20px;
       text-align: center;
     }
-
-    select, textarea {
-      width: 90%;
-      max-width: 600px;
-      font-size: 1em;
+    h1 {
       margin-bottom: 20px;
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
     }
-
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+    }
+    .profile {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      cursor: pointer;
+      position: relative;
+    }
+    .profile:hover::after {
+      content: attr(data-tags);
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      background: #eee;
+      color: #444;
+      font-size: 0.8em;
+      padding: 6px;
+      border-radius: 4px;
+    }
     textarea {
-      height: 300px;
-    }
-
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 12px 24px;
+      width: 90%;
+      max-width: 800px;
+      height: 180px;
+      margin-top: 30px;
+      padding: 12px;
       font-size: 1em;
       border-radius: 8px;
-      cursor: pointer;
-      margin: 10px;
+      border: 1px solid #ccc;
     }
-
-    .disclaimer {
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+    .prompt-box {
       margin-top: 30px;
-      font-size: 0.9em;
-      color: #888;
-      max-width: 600px;
+      font-style: italic;
+      color: #333;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
-  <h1>Your Words. Your Story.</h1>
-  <p><em>Select a prompt to explore your inner lens. This is a prototype demo.</em></p>
+  <h1>Who feels closest to your story today?</h1>
+  <div class="grid" id="profileGrid">
+    <div class="profile" data-tags="grief, aging, voice" onclick="selectPrompt(0)">The Backbone in a Shifting World</div>
+    <div class="profile" data-tags="identity, pressure, loneliness" onclick="selectPrompt(1)">The Overachiever</div>
+    <div class="profile" data-tags="race, masculinity, survival" onclick="selectPrompt(2)">The Black Son Watching the World</div>
+    <div class="profile" data-tags="justice, shame, redemption" onclick="selectPrompt(3)">The Ex-Con Trying to Stay Out</div>
+    <div class="profile" data-tags="gender, safety, identity" onclick="selectPrompt(4)">The Nonbinary Kid</div>
+    <div class="profile" data-tags="faith, parenting, values" onclick="selectPrompt(5)">The Devout Parent</div>
+    <div class="profile" data-tags="status, image, emptiness" onclick="selectPrompt(6)">The Chaser Who Feels Empty</div>
+    <div class="profile" data-tags="masculinity, confusion, guilt" onclick="selectPrompt(7)">The Young White Man</div>
+    <div class="profile" data-tags="motherhood, betrayal, strength" onclick="selectPrompt(8)">The Woman Who Did It All</div>
+    <div class="profile" data-tags="suicide, pain, high-functioning" onclick="selectPrompt(9)">The One No One Thought Would Leave</div>
+    <div class="profile" data-tags="demo mode" onclick="selectPrompt(10)">Or Write Your Own →</div>
+  </div>
 
-  <select aria-label="Choose a reflection prompt" onchange="loadPrompt(this.value)">
-    <option value="">🪶 Choose a prompt</option>
-    <option value="alive">Tell me about a moment you felt alive.</option>
-    <option value="truth">What’s a truth you’ve never said out loud?</option>
-    <option value="peace">Describe the last time you felt at peace.</option>
-    <option value="custom" selected>What's on your mind today?</option>
-  </select>
-
-  <textarea id="narrativeInput" aria-label="Your story input">
-Right now, my thoughts are scrambled. Part fear. Part drive. I want to show up honestly, even if I don’t fully understand why yet.
-  </textarea>
-
-  <button type="button" onclick="handleDemoSubmit()">Preview Lens (Demo Mode)</button>
+  <div class="prompt-box" id="promptBox"></div>
+  <textarea id="storyInput" placeholder="Your story..." style="display:none;"></textarea><br>
+  <button id="continueBtn" style="display:none;" onclick="goNext()">Continue</button>
 
   <script>
-    function handleDemoSubmit() {
-      alert("This is a demo. Submission is disabled in prototype mode.");
-      const text = document.getElementById("narrativeInput").value;
-      const encodedPrompt = encodeURIComponent(text);
-      const query = `?aiPrompt=${encodedPrompt}&customTag=demo&selectedEmotions=EQE2`;
-      setTimeout(() => {
-        window.location.href = 'aisummary.html' + query;
-      }, 200);
+    const prompts = [
+      "What’s something you’re not allowed to say anymore — but still feel?",
+      "What part of you gets seen before you're even allowed to speak?",
+      "What do you carry when you step out the door?",
+      "What don’t people get about your second chance?",
+      "What’s the question you wish people would stop asking?",
+      "When did your values stop feeling shared?",
+      "What do you keep buying that never really fills you up?",
+      "What do you feel like you’re not allowed to say?",
+      "What did you carry alone that was supposed to be shared?",
+      "When did leaving start to feel like the only way?",
+      "Demo mode only. Your story won’t be saved."
+    ];
+
+    function selectPrompt(index) {
+      document.getElementById("promptBox").innerText = prompts[index];
+      document.getElementById("storyInput").style.display = "block";
+      document.getElementById("continueBtn").style.display = "inline-block";
     }
 
-    function loadPrompt(key) {
-      const samples = {
-        alive: "I felt most alive the day I said yes to something that scared me. Not reckless fear, but the kind that meant I might grow. I was honest. I shook. And I lived.",
-        truth: "There’s a truth I’ve never said: I sometimes don’t believe I deserve peace. That I have to earn it. It’s exhausting. And maybe saying this is the first step toward letting go.",
-        peace: "Peace found me in the shower. Of all places. The sound of water muted the noise in my mind. I just stood there. Present. And that was enough.",
-        custom: "Right now, my thoughts are scrambled. Part fear. Part drive. I want to show up honestly, even if I don’t fully understand why yet."
-      };
-      document.getElementById("narrativeInput").value = samples[key] || '';
+    function goNext() {
+      // Capture story input for use later
+      window.location.href = "aisummary.html";
     }
-
-    // Auto-fill default sample on load
-    document.addEventListener("DOMContentLoaded", () => {
-      loadPrompt("custom");
-    });
   </script>
-
-  <div class="disclaimer">
-    This is a prototype demonstration. Your story is not being saved.<br/>
-    <strong>Date:</strong> 2025-06-10
-  </div>
 </body>
 </html>
