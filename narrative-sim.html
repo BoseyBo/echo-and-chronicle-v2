@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Simulation - Echo & Chronicle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    .archetype-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .card:hover {
+      background-color: #f0f4ff;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-top: 2rem;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #1e40af;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #1c3aa9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose a Story to Simulate</h1>
+  <div class="archetype-grid">
+    <div class="card" onclick="simulateStory('The Woman Who Did It All')">
+      <strong>The Woman Who Did It All</strong>
+      <p>“I carried it all. The weight. The pain. The bills. Alone.”</p>
+    </div>
+    <div class="card" onclick="simulateStory('The Chaser of Things')">
+      <strong>The Chaser of Things</strong>
+      <p>“I buy. I hustle. I numb out. But it never feels like enough.”</p>
+    </div>
+    <div class="card" onclick="simulateStory('The One Thinking About Ending It')">
+      <strong>The One Thinking About Ending It</strong>
+      <p>“Some nights I just drive. Not to anywhere. Just away.”</p>
+    </div>
+    <!-- Add more archetype cards here if needed -->
+  </div>
+
+  <textarea id="user-story" placeholder="Your story will appear here..."></textarea>
+  <br>
+  <button class="button" id="submit-button">Continue with user simulation</button>
+
+  <script>
+    function simulateStory(type) {
+      let story = "";
+      let summary = "";
+      let tags = [];
+
+      if (type === "The Woman Who Did It All") {
+        story = "I handled everything — the kids, the bills, the meals. No one noticed until I broke.";
+        summary = "You carried the family and the silence. This reflection honors the weight you held and what it cost you.";
+        tags = ["EQE2", "emotional labor", "invisible grief", "overfunctioning"];
+      } else if (type === "The Chaser of Things") {
+        story = "I bought cars, watches, and followers. The dopamine fades fast. The loneliness doesn’t.";
+        summary = "Behind the grind is a deeper ache. You’re not chasing things — you’re chasing meaning.";
+        tags = ["EQE2", "status", "numbness", "self-worth"];
+      } else if (type === "The One Thinking About Ending It") {
+        story = "They think I’m the strong one. But some nights, I don’t want to be here.";
+        summary = "Even strength has a breaking point. You’re seen, and your silence carries a story worth holding.";
+        tags = ["EQE2", "despair", "mental health", "high-functioning"];
+      }
+
+      document.getElementById("user-story").value = story;
+      localStorage.setItem("aiSummary", summary);
+      localStorage.setItem("aiTags", JSON.stringify(tags));
+    }
+
+    document.getElementById("submit-button").addEventListener("click", function () {
+      const userStory = document.getElementById("user-story").value.trim();
+      if (!userStory) {
+        alert("Please select a story or write your own.");
+        return;
+      }
+      localStorage.setItem("userStory", userStory);
+      window.location.href = "aisummary.html";
+    });
+  </script>
+</body>
+</html>
