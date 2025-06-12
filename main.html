@@ -123,54 +123,44 @@
     </div>
 
     <h2>Energy + Accessibility</h2>
-    <div class="slider-group">
-      <label>Energy</label>
-      <input type="range" name="energy" min="1" max="5">
-    </div>
-    <div class="slider-group">
-      <label>Accessibility</label>
-      <input type="range" name="accessibility" min="1" max="5">
-    </div>
+<div class="slider-group">
+  <label>Energy</label>
+  <input type="range" name="energy" min="1" max="5">
+</div>
+<div class="slider-group">
+  <label>Accessibility</label>
+  <input type="range" name="accessibility" min="1" max="5">
+</div>
 
-    <div class="button-group">
-      <button type="button" onclick="history.back()">Back</button>
-      <button type="button" onclick="skipToNext()">Skip</button>
-      <button type="submit" onclick="setTimeout(() => { window.location.href = 'narrative.html'; }, 300)">Next</button>    </div>
-  </form>
+<div class="button-group">
+  <button type="button" onclick="history.back()">Back</button>
+  <button type="button" onclick="skipToNext()">Skip</button>
+  <button type="submit" onclick="setTimeout(() => { window.location.href = 'narrative-sim.html'; }, 300)">Next</button>
+</div>
+</form>
 
-  <div class="disclaimer">
-    This EQE2 check-in helps us understand your current state — not to judge, but to reflect. You’re not a score, you're a signal.
-  </div>
+<div class="disclaimer">
+  This EQE2 check-in helps us understand your current state — not to judge, but to reflect. You’re not a score, you're a signal.
+</div>
 
-  <script>
-    function skipToNext() {
-      window.location.href = 'narrative.html';
-    }
-  
-    // Auto-fill EQE2 sliders for demo display
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector('input[name="self_awareness"]').value = 4;
-      document.querySelector('input[name="self_regulation"]').value = 3;
-      document.querySelector('input[name="motivation"]').value = 4;
-      document.querySelector('input[name="empathy"]').value = 5;
-      document.querySelector('input[name="social_skills"]').value = 3;
-      document.querySelector('input[name="challenges"]').value = 5;
-      document.querySelector('input[name="obstacles"]').value = 3;
-      document.querySelector('input[name="effort"]').value = 4;
-      document.querySelector('input[name="feedback"]').value = 2;
-      document.querySelector('input[name="setbacks"]').value = 3;
-      document.querySelector('input[name="energy"]').value = 4;
-      document.querySelector('input[name="accessibility"]').value = 5;
-    });
-  </script>
 <script>
-  document.getElementById("submit-button").addEventListener("click", function () {
-    window.location.href = "narrative-sim.html";  // ✅ Corrected route
+  function skipToNext() {
+    window.location.href = 'narrative-sim.html'; // ✅ updated
+  }
+
+  // Auto-fill EQE2 sliders for demo display
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('input[name="self_awareness"]').value = 4;
+    document.querySelector('input[name="challenges"]').value = 5;
+    document.querySelector('input[name="obstacles"]').value = 3;
+    document.querySelector('input[name="effort"]').value = 4;
+    document.querySelector('input[name="feedback"]').value = 2;
+    document.querySelector('input[name="setbacks"]').value = 3;
+    document.querySelector('input[name="energy"]').value = 4;
+    document.querySelector('input[name="accessibility"]').value = 5;
   });
 </script>
 
-  <div class="logo-footer">
+<div class="logo-footer">
   Echo & Chronicle 2025
 </div>
-</body>
-</html>
