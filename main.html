@@ -85,8 +85,8 @@
 </head>
 <body>
   <h1>EQE2: Emotional Check-In</h1>
-  <form id="eqe2Form" action="https://formspree.io/f/xeokalya" method="POST" onsubmit="redirectAfterSubmit(event)">
-    <h2>Emotional Intelligence</h2>
+<form id="eqe2Form" onsubmit="handleEQE2Submit(event)">
+      <h2>Emotional Intelligence</h2>
     <div class="slider-group">
       <label>Self-Confidence</label>
       <input type="range" name="self_confidence" min="1" max="5" value="3">
@@ -144,11 +144,15 @@
 </div>
 
 <script>
-  function skipToNext() {
-    window.location.href = 'narrative-sim.html'; // ✅ updated
+   function handleEQE2Submit(event) {
+    event.preventDefault(); // Prevent actual form submission
+    window.location.href = 'narrative-sim.html'; // ✅ Reliable routing
   }
 
-  // Auto-fill EQE2 sliders for demo display
+  function skipToNext() {
+    window.location.href = 'narrative-sim.html';
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('input[name="self_awareness"]').value = 4;
     document.querySelector('input[name="challenges"]').value = 5;
