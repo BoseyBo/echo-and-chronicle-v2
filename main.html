@@ -163,16 +163,14 @@
       document.querySelector('input[name="accessibility"]').value = 5;
     });
   </script>
-  <script>
-    function redirectAfterSubmit(event) {
-      setTimeout(() => {
-        window.location.href = 'narrative.html';
-      }, 500); // Slightly longer delay to allow form to submit
-    }
-  </script>
+<script>
+  document.getElementById("submit-button").addEventListener("click", function () {
+    // You can still store slider values here later
+    window.location.href = "narrative-sim.html";
+  });
+</script>
   <div class="logo-footer">
-  <img src="wildmind-logo-footer.png" alt="WildMind Logo">
-  WildMind 2025
+  Echo & Chronicle 2025
 </div>
 </body>
 </html>

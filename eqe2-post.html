@@ -2,96 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EQE2 Post Check-In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post-Reflection EQE2 Check-In</title>
   <style>
     body {
-      background-color: #111;
-      color: #fff;
       font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1, h2 {
       text-align: center;
-      padding: 30px 20px;
+      color: #333;
     }
-
-    h1 {
-      margin-bottom: 10px;
+    .slider-block {
+      margin: 2rem auto;
+      max-width: 600px;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-    .slider-group {
-      margin: 20px 0;
-      text-align: left;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     label {
       display: block;
-      color: #ccc;
-      margin-bottom: 5px;
+      margin-top: 1.5rem;
+      color: #444;
+      font-weight: bold;
     }
-
-    input[type="range"] {
+    input[type=range] {
       width: 100%;
     }
-
-    button {
-      margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 1em;
-      background-color: #4CAF50;
+    .submit-button {
+      display: block;
+      margin: 2rem auto 0;
+      background-color: #1e40af;
       color: white;
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
     }
-
-    button:hover {
-      background-color: #3e8e41;
+    .submit-button:hover {
+      background-color: #1c3aa9;
     }
-
-    .disclaimer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #888;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-style: italic;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>EQE2 Post Check-In</h1>
-  <p>After reflection and visualization, how do you feel now?</p>
+  <h1>Let’s Check In One More Time</h1>
+  <h2>After reading your reflection, how do you feel now?</h2>
 
-  <form action="https://formspree.io/f/xeokalya" method="POST">
-    <div class="slider-group">
-      <label>Self-Confidence</label>
-      <input type="range" name="post_self_confidence" min="1" max="5" />
-    </div>
-    <div class="slider-group">
-      <label>Self-Awareness</label>
-      <input type="range" name="post_self_awareness" min="1" max="5" />
-    </div>
-    <div class="slider-group">
-      <label>Situational Readiness</label>
-      <input type="range" name="post_situational_readiness" min="1" max="5" />
-    </div>
+  <div class="slider-block">
+    <label for="confidence">Confidence</label>
+    <input type="range" id="confidence" name="confidence" min="1" max="5">
 
-    <div class="slider-group">
-      <label>Energy</label>
-      <input type="range" name="post_energy" min="1" max="5" />
-    </div>
-    <div class="slider-group">
-      <label>Accessibility</label>
-      <input type="range" name="post_accessibility" min="1" max="5" />
-    </div>
+    <label for="clarity">Clarity</label>
+    <input type="range" id="clarity" name="clarity" min="1" max="5">
 
-    <button type="submit" onclick="setTimeout(() => { window.location.href='therapy.html'; }, 300)">Finish</button>
-  </form>
+    <label for="calm">Calm</label>
+    <input type="range" id="calm" name="calm" min="1" max="5">
 
-  <div class="disclaimer">
-    This second check-in helps you measure any shifts in how you feel after storytelling. It's not therapy—it's awareness.
+    <label for="hope">Hope</label>
+    <input type="range" id="hope" name="hope" min="1" max="5">
+
+    <button class="submit-button" onclick="window.location.href='coaching.html'">
+      Continue
+    </button>
+  </div>
+
+  <div class="footer-note">
+    You just completed a full storytelling + insight loop.<br>
+    This tool helps you reflect and take action — at your own pace.
   </div>
 </body>
 </html>
